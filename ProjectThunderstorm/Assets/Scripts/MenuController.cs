@@ -21,5 +21,5 @@ public class MenuController : MonoBehaviour {
     {
         SceneManager.LoadScene("ChallengeModeMenu");
     }
-
+    
 }
