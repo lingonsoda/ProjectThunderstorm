@@ -12,32 +12,40 @@ public class ArrowButtons : MonoBehaviour
 
 	public GameObject arrow;
 
-	private bool buttonMarked;
-	private float x, y;
+	private bool pointerOnButton;
+	private Image img;
 
 	void Awake()
 	{
-		buttonMarked = false;
+		img = GetComponent<Image> ();
 	}
 
 	void Update()
 	{
-		Vector3 pos = Input.mousePosition;
-		pos.z = transform.position.z - Camera.main.transform.position.z;
-		if (buttonMarked && Input.GetMouseButtonDown(0)) 
+		if(Input.GetMouseButtonDown(0) && pointerOnButton)
 		{
+			img.raycastTarget = false;
 			Instantiate (arrow);
+			Vector3 pos = Input.mousePosition;
+			pos.z = transform.position.z - Camera.main.transform.position.z;
 			arrow.transform.position = Camera.main.ScreenToWorldPoint (pos);
+		}
+		if (Input.GetMouseButtonUp (0)) 
+		{
+			img.raycastTarget = true;
 		}
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		buttonMarked = true;
+		Debug.Log ("mouse on " + gameObject.name);
+		pointerOnButton = true;
+
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		buttonMarked = false;
+		Debug.Log ("mouse exit " + gameObject.name);
+		pointerOnButton = false;
 	}
 }
