@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 
 public class GameController : MonoBehaviour {
 
@@ -13,4 +14,14 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+=======
+using UnityEngine.UI;
+
+public class GameController : MonoBehaviour {
+
+
+	
+		
+	
+>>>>>>> origin/Teodor
 }
