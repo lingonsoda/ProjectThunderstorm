@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6a0d355cfcf27f2449854b970564dcc4
 folderAsset: yes
 timeCreated: 1523549976
+=======
+guid: de4faddce2d7a5e48a486dbacb370fca
+folderAsset: yes
+timeCreated: 1523440578
+>>>>>>> origin/Lingonsoda's
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
