@@ -6,28 +6,45 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 	
 	public Button playButton;
+	public Button stopButton;
+	public Transform startPosition;
 
 	private BoxCollider2D bCollider;
 	private float speed;
-	private float horizontalDirection;
 
 	void Start () {
-		Button pBtn = playButton.GetComponent<Button>();
+		Button pBtn = playButton.GetComponent<Button> ();
+		pBtn.onClick.AddListener (startPlay);	
+		Button sBtn = stopButton.GetComponent<Button> ();
+		sBtn.onClick.AddListener (stopPlay);
+		stopButton.gameObject.SetActive (false);
+		startPosition.gameObject.SetActive (false);
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
-		pBtn.onClick.AddListener (startMove);	
+		transform.position = startPosition.position;
 		speed = 0.0f;
-		horizontalDirection = 1.0f;
 	}
 
 	void Update () {
-		transform.Translate (new Vector3 (horizontalDirection,0 , 0) * speed * Time.deltaTime);
+		transform.Translate (new Vector3 (1 ,0 , 0) * speed * Time.deltaTime);
 	}
 
-	void startMove()
+	void startPlay()
 	{
-		speed = 30.0f;
+		speed = 40.0f;
 		bCollider.enabled = true;
+		playButton.gameObject.SetActive (false);
+		stopButton.gameObject.SetActive (true);
+	}
+
+	void stopPlay()
+	{
+		speed = 0.0f;
+		bCollider.enabled = false;
+		transform.position = startPosition.position;
+		resetRotation ();
+		stopButton.gameObject.SetActive (false);
+		playButton.gameObject.SetActive (true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
