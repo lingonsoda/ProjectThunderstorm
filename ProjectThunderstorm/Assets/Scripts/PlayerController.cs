@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour {
 	
 	public Button playButton;
 
+	private BoxCollider2D bCollider;
 	private float speed;
 	private float horizontalDirection;
 
 	void Start () {
 		Button pBtn = playButton.GetComponent<Button>();
+		bCollider = GetComponent<BoxCollider2D> ();
+		bCollider.enabled = false;
 		pBtn.onClick.AddListener (startMove);	
 		speed = 0.0f;
 		horizontalDirection = 1.0f;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	void startMove()
 	{
 		speed = 30.0f;
+		bCollider.enabled = true;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
