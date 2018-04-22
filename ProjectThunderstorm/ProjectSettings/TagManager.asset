@@ -4,14 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - music
-=======
-  - ArrowRight
-  - ArrowLeft
-  - ArrowUp
-  - ArrowDown
->>>>>>> Lingonsoda's
   layers:
   - Default
   - TransparentFX
