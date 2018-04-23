@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+
+	public int playSpeed;
 	
 	public Button playButton;
 	public Button stopButton;
 	public Transform startPosition;
+	public GameObject winPanel;
 
 	private BoxCollider2D bCollider;
-	private float speed;
+	private int speed;
 
 	void Start () {
 		Button pBtn = playButton.GetComponent<Button> ();
@@ -22,16 +25,17 @@ public class PlayerController : MonoBehaviour {
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
-		speed = 0.0f;
+		speed = 0;
+		winPanel.SetActive (false);
 	}
 
 	void Update () {
-		transform.Translate (new Vector3 (1 ,0 , 0) * speed * Time.deltaTime);
+		transform.Translate (new Vector3 (1 ,0 ,0) * speed * Time.deltaTime);
 	}
 
 	void startPlay()
 	{
-		speed = 40.0f;
+		speed = playSpeed;
 		bCollider.enabled = true;
 		playButton.gameObject.SetActive (false);
 		stopButton.gameObject.SetActive (true);
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 
 	void stopPlay()
 	{
-		speed = 0.0f;
+		speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
 		resetRotation ();
@@ -54,19 +58,22 @@ public class PlayerController : MonoBehaviour {
 		{
 			resetRotation ();
 			transform.Rotate (Vector3.forward * 0);
-			Debug.Log ("hit right trigger");
 		}else if(collision.gameObject.CompareTag("ArrowLeft")){
 			resetRotation ();
 			transform.Rotate (Vector3.forward * 180);
-			Debug.Log ("hit left trigger");
 		}else if(collision.gameObject.CompareTag("ArrowUp")){
 			resetRotation ();
 			transform.Rotate (Vector3.forward * 90);
-			Debug.Log ("hit up trigger");
 		}else if(collision.gameObject.CompareTag("ArrowDown")){
 			resetRotation ();
 			transform.Rotate (Vector3.forward * -90);
-			Debug.Log ("hit down trigger");
+		}
+		if (collision.gameObject.CompareTag ("Goal")) {
+			winPanel.SetActive (true);
+			playButton.gameObject.SetActive (false);
+			stopButton.gameObject.SetActive (false);
+			speed = 0;
+			Debug.Log ("Goal");
 		}
 	}
 	private void resetRotation()
