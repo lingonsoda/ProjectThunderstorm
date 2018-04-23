@@ -6,5 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
+=======
+    path: Assets/Scenes/Menu.unity
+    guid: 2177813632215b144a6c945e5cb4a02e
+  - enabled: 1
+    path: Assets/Scenes/ModeSelection.unity
+    guid: d2c7ad1a361ac5f4e8c20bba1a095ef9
+  - enabled: 1
+    path: Assets/Scenes/ChallengeModeMenu.unity
+    guid: aa24a6b9eb4a63d4ab93befc9c912f53
+  - enabled: 1
+>>>>>>> origin/Teodor
     path: Assets/Scenes/Main.unity
     guid: 8fd6ac8ced5a6f64a9141ae2d4d90568
