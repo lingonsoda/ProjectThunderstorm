@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 
-    private IEnumerator fadeSound;
+    private IEnumerator fadeAudio;
     private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update () {
 		transform.Translate (new Vector3 (1 ,0 ,0) * speed * Time.deltaTime);
-        fadeSound = AudioFade.FadeOut(audio, 0.2f);
+        fadeAudio = AudioFade.FadeOut(audio, 0.2f);
     }
 
 	void startPlay()
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 
 	void stopPlay()
 	{
-        StartCoroutine(fadeSound);
+        StartCoroutine(fadeAudio);
         speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 			transform.Rotate (Vector3.forward * -90);
 		}
 		if (collision.gameObject.CompareTag ("Goal")) {
-            StartCoroutine(fadeSound);
+            StartCoroutine(fadeAudio);
             winPanel.SetActive (true);
 			playButton.gameObject.SetActive (false);
 			stopButton.gameObject.SetActive (false);
