@@ -23,13 +23,9 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
-
-<<<<<<< HEAD
+		
 	public void restartLevel()
 	{
 		Application.LoadLevel (Application.loadedLevel);
 	}
-
-=======
->>>>>>> origin/Teodor
 }

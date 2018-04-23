@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags:
-  - ArrowRight
-  - ArrowLeft
-  - ArrowUp
-  - ArrowDown
-  - Goal
-=======
   tags: []
->>>>>>> origin/Teodor
   layers:
   - Default
   - TransparentFX
