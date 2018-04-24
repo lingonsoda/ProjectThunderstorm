@@ -21,5 +21,8 @@ public class MenuController : MonoBehaviour {
     {
         SceneManager.LoadScene("ChallengeModeMenu");
     }
-    
+	public void restartCurrentLevel()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+	}
 }
