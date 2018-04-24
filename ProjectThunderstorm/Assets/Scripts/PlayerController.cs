@@ -67,7 +67,10 @@ public class PlayerController : MonoBehaviour {
 			resetRotation ();
 			transform.Rotate (Vector3.forward * -90);
 			Debug.Log ("hit down trigger");
-		}
+		}else if (collision.gameObject.CompareTag("Hinder"))
+        {
+            speed = 0.0f;
+        }
 	}
 	private void resetRotation()
 	{
@@ -75,4 +78,5 @@ public class PlayerController : MonoBehaviour {
 		myRotation.z = 0;
 		transform.rotation = myRotation;
 	}
+
 }
