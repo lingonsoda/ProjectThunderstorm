@@ -8,7 +8,8 @@ TagManager:
   - ArrowDown
   - ArrowRight
   - ArrowLeft
-  - Hinder
+  - Goal
+  - Obstacle
   layers:
   - Default
   - TransparentFX

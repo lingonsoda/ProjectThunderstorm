@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	
 	public Button playButton;
 	public Button stopButton;
+	public Button resetButton;
+	public Button menuButton;
 	public Transform startPosition;
 	public GameObject winPanel;
 
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour {
 		speed = playSpeed;
 		bCollider.enabled = true;
 		playButton.gameObject.SetActive (false);
+		resetButton.gameObject.SetActive (false);
+		menuButton.gameObject.SetActive (false);
 		stopButton.gameObject.SetActive (true);
 	}
 
@@ -49,6 +53,8 @@ public class PlayerController : MonoBehaviour {
 		resetRotation ();
 		stopButton.gameObject.SetActive (false);
 		playButton.gameObject.SetActive (true);
+		resetButton.gameObject.SetActive (true);
+		menuButton.gameObject.SetActive (true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +78,8 @@ public class PlayerController : MonoBehaviour {
 			winPanel.SetActive (true);
 			playButton.gameObject.SetActive (false);
 			stopButton.gameObject.SetActive (false);
+			resetButton.gameObject.SetActive (false);
+			menuButton.gameObject.SetActive (false);
 			speed = 0;
 			Debug.Log ("Goal");
 		}
@@ -82,4 +90,10 @@ public class PlayerController : MonoBehaviour {
 		myRotation.z = 0;
 		transform.rotation = myRotation;
 	}
+
+	public void playerCrash()
+	{
+		speed = 0;
+	}
+
 }
