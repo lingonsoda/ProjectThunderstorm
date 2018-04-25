@@ -2,26 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Patrik
 
-public class GameController : MonoBehaviour {
+using UnityEngine.UI;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+
+
 	
-	// Update is called once per frame
-	void Update () {
 		
+<<<<<<< HEAD
 	}
 =======
 using UnityEngine.UI;
+=======
+	
+
+>>>>>>> Patrik
 
 public class GameController : MonoBehaviour {
 
 
+	void Start () {
+
+	}
 	
+
+	void Update () {
 		
+<<<<<<< HEAD
 	
 >>>>>>> origin/Teodor
+=======
+	}
+		
+	public void restartLevel()
+	{
+		Application.LoadLevel (Application.loadedLevel);
+	}
+>>>>>>> Patrik
 }
