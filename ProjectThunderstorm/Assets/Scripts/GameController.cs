@@ -14,4 +14,8 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> Lingonsoda's
 }

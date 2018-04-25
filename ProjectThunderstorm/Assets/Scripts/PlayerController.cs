@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour {
 	
 	public Button playButton;
 	public Button stopButton;
+	public Button resetButton;
+	public Button menuButton;
 	public Transform startPosition;
 	public GameObject winPanel;
 
-    private IEnumerator fadeAudio;
-    private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
 
@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour {
 		pBtn.onClick.AddListener (startPlay);	
 		Button sBtn = stopButton.GetComponent<Button> ();
 		sBtn.onClick.AddListener (stopPlay);
-        audio = GetComponent<AudioSource>();
-        stopButton.gameObject.SetActive (false);
+		stopButton.gameObject.SetActive (false);
 		startPosition.gameObject.SetActive (false);
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
@@ -34,27 +33,28 @@ public class PlayerController : MonoBehaviour {
 
 	void Update () {
 		transform.Translate (new Vector3 (1 ,0 ,0) * speed * Time.deltaTime);
-        fadeAudio = AudioFade.FadeOut(audio, 0.2f);
-    }
+	}
 
 	void startPlay()
 	{
-        audio.Play();
-        speed = playSpeed;
+		speed = playSpeed;
 		bCollider.enabled = true;
 		playButton.gameObject.SetActive (false);
+		resetButton.gameObject.SetActive (false);
+		menuButton.gameObject.SetActive (false);
 		stopButton.gameObject.SetActive (true);
 	}
 
 	void stopPlay()
 	{
-        StartCoroutine(fadeAudio);
-        speed = 0;
+		speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
 		resetRotation ();
 		stopButton.gameObject.SetActive (false);
 		playButton.gameObject.SetActive (true);
+		resetButton.gameObject.SetActive (true);
+		menuButton.gameObject.SetActive (true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -75,10 +75,11 @@ public class PlayerController : MonoBehaviour {
 			transform.Rotate (Vector3.forward * -90);
 		}
 		if (collision.gameObject.CompareTag ("Goal")) {
-            StartCoroutine(fadeAudio);
-            winPanel.SetActive (true);
+			winPanel.SetActive (true);
 			playButton.gameObject.SetActive (false);
 			stopButton.gameObject.SetActive (false);
+			resetButton.gameObject.SetActive (false);
+			menuButton.gameObject.SetActive (false);
 			speed = 0;
 			Debug.Log ("Goal");
 		}
@@ -89,4 +90,10 @@ public class PlayerController : MonoBehaviour {
 		myRotation.z = 0;
 		transform.rotation = myRotation;
 	}
+
+	public void playerCrash()
+	{
+		speed = 0;
+	}
+
 }

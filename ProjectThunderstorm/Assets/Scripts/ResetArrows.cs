@@ -19,9 +19,8 @@ public class ResetArrows : MonoBehaviour {
             Transform parent = grandParent.transform.GetChild(i);
             if(parent.transform.childCount > 0) {
                 Destroy(parent.transform.GetChild(0).gameObject);
-                Debug.Log("Objekt borttaget vid" + "[child " + (i) + "]");
             }
-            
+            Debug.Log((i+1) + " child");
         }
         
     }
