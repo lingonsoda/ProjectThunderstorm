@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler {
+    ArrowColorTrack ArrowColorTrackScript;
 
-	public GameObject item {
+    void Start() {
+        ArrowColorTrackScript = GameObject.Find("TilePanel").GetComponent<ArrowColorTrack>();
+    }
+
+    public GameObject item {
 		get {
 		if (transform.childCount>0){
 				return transform.GetChild (0).gameObject;
@@ -22,8 +27,8 @@ public class Slot : MonoBehaviour, IDropHandler {
 		if (!item) {
 			DragHandler.itemBeingDragged.transform.SetParent (transform);
 		}
-
-	}
+        ArrowColorTrackScript.ColorTrack();
+    }
 
 	#endregion
 }

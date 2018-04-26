@@ -26,12 +26,22 @@ public class PlayerController : MonoBehaviour
 		pBtn.onClick.AddListener (startPlay);	
 		Button sBtn = stopButton.GetComponent<Button> ();
 		sBtn.onClick.AddListener (stopPlay);
+<<<<<<< HEAD
 		stopButton.gameObject.SetActive (false);
 		arrowCollider = GetComponent<BoxCollider2D> ();
 		arrowCollider.enabled = false;
 		speed = 0;
 		winPanel.SetActive (false);
 		StartCoroutine(setStartPosition ());
+=======
+        audio = GetComponent<AudioSource>();
+        stopButton.gameObject.SetActive (false);
+		bCollider = GetComponent<BoxCollider2D> ();
+		bCollider.enabled = false;
+		speed = 0;
+		winPanel.SetActive (false);
+		StartCoroutine (setStartPosition ());
+>>>>>>> Patrik
 	}
 
 	void Update ()
@@ -101,6 +111,7 @@ public class PlayerController : MonoBehaviour
 		transform.rotation = myRotation;
 	}
 
+<<<<<<< HEAD
 	public void playerCrash ()
 	{
 		speed = 0;
@@ -112,4 +123,10 @@ public class PlayerController : MonoBehaviour
 		transform.position = startPosition.position;
 	}
 
+=======
+	IEnumerator setStartPosition(){
+		yield return new WaitForEndOfFrame ();
+		transform.position = startPosition.position;
+	}
+>>>>>>> Patrik
 }
