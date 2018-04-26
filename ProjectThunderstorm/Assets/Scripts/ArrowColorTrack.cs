@@ -4,34 +4,65 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ArrowColorTrack : MonoBehaviour {
+    public bool startLeft;
+    public bool startRight;
+    public bool startDown;
+    public bool startUp;
 
     Transform grandParent;
+    Transform gt;
     Color blue;
     Color white;
 
 	void Start() {
         grandParent = this.transform;
+        gt = grandParent.transform;
         blue = new Color32(0, 50, 240, 100);
         white = new Color32(255, 255, 255, 45);
+        StartPositionColorTrack();
     }
 
     public void RemoveAllColor() {
         for (int i = 0; i < grandParent.childCount; i++) {
-            Transform parent = grandParent.transform.GetChild(i);
-                parent.GetComponent<Image>().color = white;
+            Transform parent = gt.GetChild(i);
+            parent.GetComponent<Image>().color = white;
+        }
+    }
+
+    public void StartPositionColorTrack() {
+        string str = "Exception";
+        for (int i = 0; i < grandParent.childCount; i++) {
+            Transform parent = gt.GetChild(i);
+            if (parent.transform.childCount > 0) {
+                if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
+                    int temp = i;
+                    Debug.Log("Start Hittad! Färgar till höger");
+                    for (int ar = 0; ar < 15; ar++) {
+                        try {
+                            gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
+                            if (gt.GetChild(temp + ar + 1).childCount > 0 || (temp + ar + 1) % 15 == 0) {
+                                gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
+                                break;
+                            }
+                        } catch (System.Exception) {
+                            Debug.Log(str);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 
     public void ColorTrack() {
-        Transform gt = grandParent.transform;
         string str = "Exception";
-
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
             if (parent.transform.childCount == 0) {
                 parent.GetComponent<Image>().color = white;
             }
         }
+        StartPositionColorTrack();
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
             if (parent.transform.childCount > 0) {
@@ -97,23 +128,6 @@ public class ArrowColorTrack : MonoBehaviour {
                         }
                     }
                 }
-
-				if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
-					int temp = i;
-					Debug.Log("Start Hittad! Färgar till höger");
-					for (int ar = 0; ar < 15; ar++) {
-						try {
-							gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
-							if (gt.GetChild(temp + ar + 1).childCount > 0 || (temp + ar + 1) % 15 == 0) {
-								gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
-								break;
-							}
-						}catch (System.Exception) {
-							Debug.Log(str);
-							break;
-						}
-					}
-				}
             }
         }
     }
