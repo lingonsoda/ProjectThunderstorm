@@ -1701,6 +1701,7 @@ GameObject:
   - component: {fileID: 202116851}
   - component: {fileID: 202116850}
   - component: {fileID: 202116853}
+  - component: {fileID: 202116854}
   m_Layer: 5
   m_Name: TilePanel
   m_TagString: Untagged
@@ -1899,6 +1900,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetButton: {fileID: 152608900}
+--- !u!114 &202116854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 202116848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba1f7fea5cb5c408b70c2e97399adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowUp: {fileID: 1323885546529532, guid: f270bdd218fc7c64d956554dd5f8dfa5, type: 2}
+  arrowDown: {fileID: 1120348552373966, guid: e876f5e3bdd22c2479af3b9248b20b3a, type: 2}
+  arrowLeft: {fileID: 1804016876030862, guid: 7352286b618d7dd428bec12c9ea549c1, type: 2}
+  arrowRight: {fileID: 1250800512181346, guid: 9ef6556b0f72b674cb428b26fec18d81, type: 2}
 --- !u!1 &216665067
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,7 +10898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 35.700012, y: 4.999997}
+  m_AnchoredPosition: {x: 35.69995, y: 4.999997}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1465532578
