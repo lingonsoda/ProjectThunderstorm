@@ -704,11 +704,11 @@ RectTransform:
   m_Father: {fileID: 1256928211}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 71.5}
-  m_SizeDelta: {x: 579.8, y: 193.3}
-  m_Pivot: {x: 0.5098695, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 736.6, y: 250.4}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1282936809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: bdcdf176540f52243a8cd0db2648e172, type: 3}
     m_FontSize: 67
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 86
     m_Alignment: 4
@@ -741,7 +741,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THUNDERSTORM (PLACEHOLDER)
+  m_Text: Adventures of Box Car Mini Mouse
 --- !u!222 &1282936810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -880,6 +880,7 @@ GameObject:
   - component: {fileID: 1450078749}
   - component: {fileID: 1450078748}
   - component: {fileID: 1450078750}
+  - component: {fileID: 1450078751}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: music
@@ -991,6 +992,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1450078751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450078747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6517b0305cf7241a33bed228dc54b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic: {fileID: 8300000, guid: 6ab0bff242d9de843a134453fa292ef1, type: 3}
+  levelMusic: {fileID: 8300000, guid: 7520d7050ec8a3f43a2b49c257855803, type: 3}
+  source: {fileID: 1450078750}
 --- !u!1 &1563161235
 GameObject:
   m_ObjectHideFlags: 0
