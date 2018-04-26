@@ -11,8 +11,8 @@ public class ArrowColorTrack : MonoBehaviour {
 
 	void Start() {
         grandParent = this.transform;
-        blue = new Color32(0, 50, 255, 100);
-        white = new Color32(255, 255, 255, 100);
+        blue = new Color32(0, 50, 240, 100);
+        white = new Color32(255, 255, 255, 45);
     }
 
     public void RemoveAllColor() {
