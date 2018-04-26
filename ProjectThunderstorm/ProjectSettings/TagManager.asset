@@ -9,6 +9,8 @@ TagManager:
   - ArrowRight
   - ArrowLeft
   - Hinder
+  - music
+  - music2
   layers:
   - Default
   - TransparentFX

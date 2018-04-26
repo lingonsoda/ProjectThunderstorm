@@ -878,8 +878,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1450078749}
-  - component: {fileID: 1450078748}
   - component: {fileID: 1450078750}
+  - component: {fileID: 1450078748}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: music
@@ -895,9 +895,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450078747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0cf91aa168bd543a49de53daf63e20, type: 3}
+  m_Script: {fileID: 11500000, guid: dc6b49fffc32bb546ad07c435aaa91be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuMusic: {fileID: 8300000, guid: 6ab0bff242d9de843a134453fa292ef1, type: 3}
+  levelMusic: {fileID: 8300000, guid: 41257f4ce306ddc43b752dcdcd61ace3, type: 3}
+  source: {fileID: 1450078750}
 --- !u!4 &1450078749
 Transform:
   m_ObjectHideFlags: 0
@@ -924,7 +927,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

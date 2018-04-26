@@ -16,6 +16,7 @@ public class MenuController : MonoBehaviour {
     public void StartStory()
     {
         SceneManager.LoadScene("Main");
+        MusicPlayer.PlayGameMusic();
     }
     public void ChooseChallengeLevel()
     {
