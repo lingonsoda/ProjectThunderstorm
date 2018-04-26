@@ -15,15 +15,26 @@ public class MenuController : MonoBehaviour {
     }
     public void StartStory()
     {
-        SceneManager.LoadScene("Main");
+		SceneManager.LoadScene("Level 1-1");
     }
     public void ChooseChallengeLevel()
     {
         SceneManager.LoadScene("ChallengeModeMenu");
     }
 
-	public void restartCurrentLevel(){
+	public void Level1dash1()
+	{
+		SceneManager.LoadScene("Level 1-1");
+	}
+
+	public void RestartCurrentLevel()
+	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex, LoadSceneMode.Single);
+	}
+
+	public void LoadNextScene()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1, LoadSceneMode.Single);
 	}
     
 }

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		speed = 0;
 		winPanel.SetActive (false);
 		StartCoroutine (setStartPosition ());
+		transform.position = startPosition.position;
 	}
 
 	void Update () {

@@ -97,6 +97,23 @@ public class ArrowColorTrack : MonoBehaviour {
                         }
                     }
                 }
+
+				if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
+					int temp = i;
+					Debug.Log("Start Hittad! Färgar till höger");
+					for (int ar = 0; ar < 15; ar++) {
+						try {
+							gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
+							if (gt.GetChild(temp + ar + 1).childCount > 0 || (temp + ar + 1) % 15 == 0) {
+								gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
+								break;
+							}
+						}catch (System.Exception) {
+							Debug.Log(str);
+							break;
+						}
+					}
+				}
             }
         }
     }
