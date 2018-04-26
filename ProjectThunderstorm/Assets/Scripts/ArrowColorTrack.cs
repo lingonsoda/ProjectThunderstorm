@@ -58,7 +58,6 @@ public class ArrowColorTrack : MonoBehaviour {
                         try {
                             gt.GetChild(temp + ad).GetComponent<Image>().color = blue;
                             if(gt.GetChild(temp + ad + 15).childCount > 0) {
-                                gt.GetChild(temp + ad + 15).GetComponent<Image>().color = blue;
                                 break;
                             }
                         } catch (System.Exception) {
@@ -90,7 +89,6 @@ public class ArrowColorTrack : MonoBehaviour {
                         try {
                             gt.GetChild(temp + (au-105)).GetComponent<Image>().color = blue;
                             if(gt.GetChild(temp + (au - 105) - 15).childCount > 0) {
-                                gt.GetChild(temp + (au - 105) - 15).GetComponent<Image>().color = blue;
                                 break;
                             }
                         } catch (System.Exception) {
