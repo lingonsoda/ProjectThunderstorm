@@ -83,7 +83,8 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
-			speed = 0;
+            StartCoroutine(fadeAudio);
+            speed = 0;
 		}
 	}
 	private void resetRotation()
