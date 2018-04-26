@@ -7,7 +7,7 @@ public class RespawnArrow : MonoBehaviour {
 	public GameObject itemBeingDragged;
     GameObject clone;
     Transform startParent;
-    
+
     void Start() {
         startParent = this.transform;
     }
