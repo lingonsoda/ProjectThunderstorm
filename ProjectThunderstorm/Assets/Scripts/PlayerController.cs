@@ -24,12 +24,11 @@ public class PlayerController : MonoBehaviour {
 		sBtn.onClick.AddListener (stopPlay);
         audio = GetComponent<AudioSource>();
         stopButton.gameObject.SetActive (false);
-		startPosition.gameObject.SetActive (false);
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
-		transform.position = startPosition.position;
 		speed = 0;
 		winPanel.SetActive (false);
+		StartCoroutine (setStartPosition ());
 	}
 
 	void Update () {
@@ -88,5 +87,10 @@ public class PlayerController : MonoBehaviour {
 		Quaternion myRotation = transform.rotation;
 		myRotation.z = 0;
 		transform.rotation = myRotation;
+	}
+
+	IEnumerator setStartPosition(){
+		yield return new WaitForEndOfFrame ();
+		transform.position = startPosition.position;
 	}
 }
