@@ -2835,7 +2835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.0000305, y: -10}
+  m_AnchoredPosition: {x: 5, y: -10}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &323354765
@@ -9544,7 +9544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd985c078c87594b85f99bae5bf2595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSpeed: 100
+  playSpeed: 150
   playButton: {fileID: 1024049216}
   stopButton: {fileID: 813025863}
   startPosition: {fileID: 2086547321}
