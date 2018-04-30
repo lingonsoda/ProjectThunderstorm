@@ -19,7 +19,11 @@ public class Slot : MonoBehaviour, IDropHandler {
 
     public void OnDrop (PointerEventData eventData)
 	{
-		if (!item) {
+        if (item && item.name.Contains("Arrow") && item.transform.parent.name.Contains("Panel")) {//
+            item.transform.SetParent(DragHandler.startParent);//
+            DragHandler.itemBeingDragged.transform.SetParent(transform);//
+        }//
+        if (!item) {
 			DragHandler.itemBeingDragged.transform.SetParent (transform);
 		}
 

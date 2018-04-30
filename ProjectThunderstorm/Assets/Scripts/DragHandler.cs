@@ -5,9 +5,14 @@ using UnityEngine.EventSystems;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-	public static GameObject itemBeingDragged;
-	Vector3 startPosition;
-	Transform startParent;
+    public static GameObject itemBeingDragged;
+    ArrowColorTrack ArrowColorTrackScript;//
+    Vector3 startPosition;
+    public static Transform startParent;//Transform startParent
+
+    void Start() {
+        ArrowColorTrackScript = GameObject.Find("TilePanel").GetComponent<ArrowColorTrack>();//
+    }
 
 	#region IBeginDragHandler implementation
 
@@ -26,7 +31,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public void OnDrag (PointerEventData eventData)
 	{
 		transform.position = Input.mousePosition;
-	}
+        if (startParent.name.Contains("Panel")) {//
+            transform.SetParent(startParent.parent);//
+            ArrowColorTrackScript.ColorTrack();//
+        }//
+        
+    }
 
 	#endregion
 
@@ -36,8 +46,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	{
 		itemBeingDragged = null;
 		GetComponent<CanvasGroup> ().blocksRaycasts = true;
-
-		if (transform.parent == startParent) {
+        if (transform.parent == startParent.parent) {//
+            transform.position = startPosition;//
+            transform.SetParent(startParent);//
+            ArrowColorTrackScript.ColorTrack();//
+        }//
+        if (transform.parent == startParent) {
 			transform.position = startPosition;
 		}
 	}
