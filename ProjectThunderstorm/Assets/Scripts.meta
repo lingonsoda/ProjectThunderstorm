@@ -1,21 +1,5 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-guid: 7fe65cbf83b21d34283f11b5dd1f1c59
-folderAsset: yes
-timeCreated: 1523438133
-=======
-guid: 8dccc8ac47c5a9346a88152d99ba7cb9
-folderAsset: yes
-timeCreated: 1523531363
->>>>>>> Marcus
-=======
-guid: a7198648a347df643946886f800a4433
-folderAsset: yes
-timeCreated: 1523389133
->>>>>>> origin/Teodor
-=======
 guid: a7198648a347df643946886f800a4433
 folderAsset: yes
 timeCreated: 1523389133
@@ -41,7 +25,6 @@ timeCreated: 1523438133
 >>>>>>> origin/Lingonsoda's
 >>>>>>> Patrik
 >>>>>>> Lingonsoda's
->>>>>>> Patrik
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

@@ -15,13 +15,26 @@ public class ResetArrows : MonoBehaviour {
     }
 
     void OnClick() {
+<<<<<<< HEAD
         for(int i = 0; i < grandParent.childCount; i++) {
             Transform parent = grandParent.transform.GetChild(i);
             if(parent.transform.childCount > 0) {
+=======
+        for (int i = 0; i < grandParent.childCount; i++) {
+            Transform parent = grandParent.transform.GetChild(i);
+            if (parent.transform.childCount > 0 && parent.transform.GetChild(0).gameObject.name.Contains("Arrow")) {
+>>>>>>> master
                 Destroy(parent.transform.GetChild(0).gameObject);
+                Debug.Log("Objekt borttaget vid" + "[child " + (i) + "]");
             }
+<<<<<<< HEAD
             Debug.Log((i+1) + " child");
         }
         
+=======
+        }
+        ArrowColorTrackScript.RemoveAllColor();
+        ArrowColorTrackScript.StartPositionColorTrack();
+>>>>>>> master
     }
 }
