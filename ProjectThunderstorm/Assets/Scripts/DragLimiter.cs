@@ -10,19 +10,22 @@ public class DragLimiter : MonoBehaviour, IPointerDownHandler, IDragHandler{
 	public Vector3[] corners = new Vector3[4];
 	public DragLimit other;
 	private RectTransform panelRectTransform;
+	private RectTransform slotitem;
+
 	private Vector2 pointerOffset;
 
 
 
 
 	void Start () {
-		panelRectTransform = transform as RectTransform;
+		panelRectTransform = transform.parent as RectTransform;
+		slotitem = transform as RectTransform;
 	}
 	
 
 	public void OnPointerDown (PointerEventData data) {
-		panelRectTransform.SetAsLastSibling ();
-		RectTransformUtility.ScreenPointToLocalPointInRectangle (panelRectTransform, data.position, data.pressEventCamera, out pointerOffset);
+		slotitem.SetAsLastSibling ();
+		RectTransformUtility.ScreenPointToLocalPointInRectangle (slotitem, data.position, data.pressEventCamera, out pointerOffset);
 	}
 
 	public void OnDrag (PointerEventData data) {
@@ -34,7 +37,7 @@ public class DragLimiter : MonoBehaviour, IPointerDownHandler, IDragHandler{
 		Vector2 localPointerPosition;
 		if (RectTransformUtility.ScreenPointToLocalPointInRectangle (
 			panelRectTransform, pointerPosition, data.pressEventCamera, out localPointerPosition)) {
-			panelRectTransform.localPosition = localPointerPosition + pointerOffset;
+			slotitem.localPosition = localPointerPosition - pointerOffset;
 		}
 
 	}
@@ -46,7 +49,7 @@ public class DragLimiter : MonoBehaviour, IPointerDownHandler, IDragHandler{
 		corners = other.corners;
 
 		float clampedX = Mathf.Clamp (rawPointerPosition.x, corners [0].x, corners [2].x);
-		float clampedY = Mathf.Clamp (rawPointerPosition.y, corners [0].x, corners [2].y);
+		float clampedY = Mathf.Clamp (rawPointerPosition.y, corners [0].y, corners [2].y);
 
 		Vector2 newPointerPosition = new Vector2 (clampedX, clampedY);
 		return newPointerPosition;
