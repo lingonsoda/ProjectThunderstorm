@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DragLimiter : MonoBehaviour, IPointerDownHandler, IDragHandler{
 
-
+	//Not working
 	public Vector3[] corners = new Vector3[4];
 	public DragLimit other;
 	private RectTransform panelRectTransform;
