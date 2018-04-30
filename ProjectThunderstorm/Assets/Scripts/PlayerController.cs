@@ -6,29 +6,30 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	public int playSpeed;
-	public bool play;
 	
 	public Button playButton;
 	public Button stopButton;
 	public Transform startPosition;
 	public GameObject winPanel;
-	public GameController gameController;
 
     private IEnumerator fadeAudio;
     private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
-	private bool playerCrashed;
 
 	void Start () {
+		Button pBtn = playButton.GetComponent<Button> ();
+		pBtn.onClick.AddListener (startPlay);	
+		Button sBtn = stopButton.GetComponent<Button> ();
+		sBtn.onClick.AddListener (stopPlay);
         audio = GetComponent<AudioSource>();
+        stopButton.gameObject.SetActive (false);
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
+		winPanel.SetActive (false);
 		StartCoroutine (setStartPosition ());
 		transform.position = startPosition.position;
-		play = false;
-		playerCrashed = false;
 	}
 
 	void Update () {
@@ -36,27 +37,24 @@ public class PlayerController : MonoBehaviour {
         fadeAudio = AudioFade.FadeOut(audio, 0.2f);
     }
 
-	public void startPlay()
+	void startPlay()
 	{
         audio.Play();
         speed = playSpeed;
 		bCollider.enabled = true;
-		gameController.swapPlayAndStop ();
-		play = true;
+		playButton.gameObject.SetActive (false);
+		stopButton.gameObject.SetActive (true);
 	}
 
-	public void stopPlay()
+	void stopPlay()
 	{
         StartCoroutine(fadeAudio);
         speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
 		resetRotation ();
-		if (play) {
-			gameController.swapPlayAndStop ();
-		}
-		play = false;
-		playerCrashed = false;
+		stopButton.gameObject.SetActive (false);
+		playButton.gameObject.SetActive (true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -78,14 +76,15 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (collision.gameObject.CompareTag ("Goal")) {
             StartCoroutine(fadeAudio);
-			gameController.activateWinPanel ();
+            winPanel.SetActive (true);
+			playButton.gameObject.SetActive (false);
+			stopButton.gameObject.SetActive (false);
 			speed = 0;
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
             StartCoroutine(fadeAudio);
             speed = 0;
-			playerCrashed = true;
 		}
 	}
 	private void resetRotation()
@@ -98,21 +97,5 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator setStartPosition(){
 		yield return new WaitForEndOfFrame ();
 		transform.position = startPosition.position;
-	}
-
-	public void pausePlayer()
-	{
-		speed = 0;
-		StartCoroutine(fadeAudio);
-	}
-
-	public void startPlayer()
-	{
-		if (playerCrashed) {
-			speed = 0;
-		} else if(play) {
-			speed = playSpeed;
-			audio.Play();
-		}
 	}
 }
