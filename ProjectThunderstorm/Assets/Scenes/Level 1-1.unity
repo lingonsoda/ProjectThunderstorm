@@ -7647,6 +7647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetButton: {fileID: 891916133}
+  playerController: {fileID: 154906360}
 --- !u!114 &782454777
 MonoBehaviour:
   m_ObjectHideFlags: 0

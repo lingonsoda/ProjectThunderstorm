@@ -8,6 +8,7 @@ public class ResetArrows : MonoBehaviour
 	public Button resetButton;
 	Transform grandParent;
 	ArrowColorTrack ArrowColorTrackScript;
+	public PlayerController playerController;
 
 	void Start() {
 		Button rBtn = resetButton.GetComponent<Button>();
@@ -26,6 +27,6 @@ public class ResetArrows : MonoBehaviour
 		}
 		ArrowColorTrackScript.RemoveAllColor();
 		ArrowColorTrackScript.StartPositionColorTrack();
+		playerController.stopPlay ();
 	}
 }
-
