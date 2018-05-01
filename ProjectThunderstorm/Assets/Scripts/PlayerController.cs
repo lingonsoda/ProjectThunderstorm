@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 		speed = playSpeed;
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
+		gameController.deactivateArrowPanel ();
 		play = true;
 	}
 
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour {
 		if (play) {
 			gameController.swapPlayAndStop ();
 		}
+		gameController.activateArrowPanel ();
 		play = false;
 		playerCrashed = false;
 	}

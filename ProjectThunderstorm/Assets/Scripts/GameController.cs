@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject menuPanel;
 	public GameObject winPanel;
+	public GameObject arrowPanel;
 	public Button playButton;
 	public Button stopButton;
 	public Button resetButton;
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour {
 	{
 		menuPanel.SetActive (true);
 		deactivateGameButtons ();
+		deactivateArrowPanel ();
 		playerController.pausePlayer ();
 	}
 
@@ -34,6 +36,10 @@ public class GameController : MonoBehaviour {
 	{
 		menuPanel.SetActive (false);
 		activateGameButtons ();
+		if (!playerController.play) 
+		{
+			activateArrowPanel ();
+		}
 		playerController.startPlayer ();
 	}
 
@@ -41,6 +47,7 @@ public class GameController : MonoBehaviour {
 	{
 		winPanel.SetActive (true);
 		deactivateGameButtons ();
+		deactivateArrowPanel ();
 		playerController.pausePlayer ();
 	}
 
@@ -53,6 +60,16 @@ public class GameController : MonoBehaviour {
 			playButton.gameObject.SetActive (true);
 			stopButton.gameObject.SetActive (false);
 		}
+	}
+
+	public void activateArrowPanel()
+	{
+		arrowPanel.SetActive (true);
+	}
+
+	public void deactivateArrowPanel()
+	{
+		arrowPanel.SetActive (false);
 	}
 
 	private void activateGameButtons()
