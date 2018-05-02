@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     public int correctAnswer;
-    public bool isCorrectAnswer;
-    AudioSource audio;
+    bool isCorrectAnswer;
 
     void Update() {
         if (this.transform.childCount == 0) {
@@ -27,11 +26,10 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     #region IDropHandler implementation
 
     public void OnDrop(PointerEventData eventData) {
-        int number = QuizDragHandler.getNumber();
-        audio = QuizDragHandler.itemBeingDragged.GetComponent<AudioSource>();
+        string name = DragHandler.itemBeingDragged.name;
+        int number = int.Parse(name);
         if (!item) {
-            QuizDragHandler.itemBeingDragged.transform.SetParent(transform);
-            audio.Play();
+            DragHandler.itemBeingDragged.transform.SetParent(transform);
             if (SlotIsCorrect(number)) {
                 isCorrectAnswer = true;
             } else { isCorrectAnswer = false; }
