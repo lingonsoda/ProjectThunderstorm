@@ -87,6 +87,12 @@ public class PlayerController : MonoBehaviour {
 			speed = 0;
 			playerCrashed = true;
 		}
+
+		if (collision.gameObject.CompareTag ("ToggleBox")) {
+			StartCoroutine(fadeAudio);
+			speed = 0;
+			playerCrashed = true;
+		}
 	}
 	private void resetRotation()
 	{
