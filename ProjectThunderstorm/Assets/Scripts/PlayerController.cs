@@ -12,16 +12,22 @@ public class PlayerController : MonoBehaviour {
 	public Button stopButton;
 	public Transform startPosition;
 	public GameObject winPanel;
+	public GameObject bear;
 	public GameController gameController;
+	public QuizPlayButton quizPlayButton;
 
 	private IEnumerator fadeAudio;
 	private AudioSource audio;
+	private AudioSource bearAudio;
 	private BoxCollider2D bCollider;
+	private BoxCollider2D bearCollider;
 	private int speed;
 	private bool playerCrashed;
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
+		bearAudio = bear.GetComponent<AudioSource> ();
+		bearCollider = bear.GetComponent<BoxCollider2D> ();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
@@ -43,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
 		gameController.deactivateArrowPanel ();
+		quizPlayButton.AnswerCheck ();
 		play = true;
 	}
 
@@ -94,6 +101,13 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(fadeAudio);
 			speed = 0;
 			playerCrashed = true;
+			if (quizPlayButton.correctAnswer) 
+			{
+				bearAudio.Play ();
+				StartCoroutine(waitForBearToSleep());
+			}else{
+				//fail?
+			}
 		}
 	}
 	private void resetRotation()
@@ -106,6 +120,15 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator setStartPosition(){
 		yield return new WaitForEndOfFrame ();
 		transform.position = startPosition.position;
+	}
+
+	IEnumerator waitForBearToSleep(){
+		yield return new WaitForSeconds (12);
+		bearCollider.enabled = false;
+		//"move bear"
+		speed = playSpeed;
+		audio.Play ();
+		playerCrashed = false;
 	}
 
 	public void pausePlayer()
