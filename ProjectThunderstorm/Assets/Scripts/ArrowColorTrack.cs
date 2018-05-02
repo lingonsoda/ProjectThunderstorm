@@ -14,6 +14,8 @@ public class ArrowColorTrack : MonoBehaviour {
     Color blue;
     Color white;
 
+    public int refresh = 0;
+
 	void Start() {
         grandParent = this.transform;
         gt = grandParent.transform;
@@ -22,13 +24,15 @@ public class ArrowColorTrack : MonoBehaviour {
         StartPositionColorTrack();
     }
 
+    void Update() {
+    }
+
     public void RemoveAllColor() {
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
             if (parent.name.Contains("Panel")) {
                 parent.GetComponent<Image>().color = white;
             }
-            
         }
     }
 
@@ -55,6 +59,15 @@ public class ArrowColorTrack : MonoBehaviour {
                 }
             }
         }
+        if(refresh == 1) {
+            refresh--;
+            StartCoroutine(repeatStartPositionColorTrack());
+        }  
+    }
+
+    IEnumerator repeatStartPositionColorTrack() {
+        yield return new WaitForSeconds(0.0001f);
+        StartPositionColorTrack();
     }
 
     public void ColorTrack() {

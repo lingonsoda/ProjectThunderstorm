@@ -20,8 +20,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-
-	}
+        
+    }
 
 	public void activateMenuPanel()
 	{

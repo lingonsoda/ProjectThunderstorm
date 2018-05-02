@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class QuizPlayButton : MonoBehaviour {
-    public Button quizPlayBtn;
     public GameObject slot1, slot2, slot3, slot4;
 	public bool correctAnswer;
 
@@ -12,8 +11,7 @@ public class QuizPlayButton : MonoBehaviour {
 
 
     void Start() {
-        Button qPBtn = quizPlayBtn.GetComponent<Button>();
-		qPBtn.onClick.AddListener(AnswerCheck);
+
 		correctAnswer = false;
     }
 
