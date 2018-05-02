@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd985c078c87594b85f99bae5bf2595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSpeed: 150
+  playSpeed: 250
   play: 0
   playButton: {fileID: 1991527009}
   stopButton: {fileID: 2055501251}
