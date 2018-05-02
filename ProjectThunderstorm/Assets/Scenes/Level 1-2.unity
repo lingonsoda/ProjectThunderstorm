@@ -8955,7 +8955,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 643547231}
-        m_MethodName: FromSelectionModeBack
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11063,9 +11063,15 @@ MonoBehaviour:
   stopButton: {fileID: 813025863}
   startPosition: {fileID: 2086547321}
   winPanel: {fileID: 1142500618}
+<<<<<<< HEAD
   bear: {fileID: 527183782}
   gameController: {fileID: 1198775310}
   quizPlayButton: {fileID: 1507354420}
+=======
+  bear: {fileID: 0}
+  gameController: {fileID: 1198775310}
+  quizPlayButton: {fileID: 0}
+>>>>>>> bc15230da911e1a6af9bbe9e9a30357d2c57526b
 --- !u!114 &993507163
 MonoBehaviour:
   m_ObjectHideFlags: 0
