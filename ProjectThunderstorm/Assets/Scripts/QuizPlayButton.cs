@@ -16,16 +16,13 @@ public class QuizPlayButton : MonoBehaviour {
 
     }
 
-    void Update() {
+    void OnClick() {
         slotOne = slot1.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotTwo = slot2.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotThree = slot3.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotFour = slot4.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotFive = slot5.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
-    }
-
-    void OnClick() {
-        if(slotOne && slotTwo && slotThree && slotFour && slotFive) {
+        if (slotOne && slotTwo && slotThree && slotFour && slotFive) {
             Debug.Log("Rätt");
         } else { Debug.Log("Fel"); }
     }
