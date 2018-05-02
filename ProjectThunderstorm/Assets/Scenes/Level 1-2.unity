@@ -12476,6 +12476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1494764282}
   winPanel: {fileID: 1142500618}
+  arrowPanel: {fileID: 323354763}
   playButton: {fileID: 1024049216}
   stopButton: {fileID: 813025863}
   resetButton: {fileID: 828497671}
