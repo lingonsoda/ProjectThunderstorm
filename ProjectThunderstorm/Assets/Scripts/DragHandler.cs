@@ -22,11 +22,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		startPosition = transform.position;
 		startParent = transform.parent;
 		GetComponent<CanvasGroup> ().blocksRaycasts = false;
-        if (startParent.name.Contains("Panel")) {//
-            transform.SetParent(startParent.parent);//
-            ArrowColorTrackScript.ColorTrack();//
-        }//
-    }
+	}
 
 	#endregion
 
@@ -34,7 +30,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnDrag (PointerEventData eventData)
 	{
-		transform.position = Input.mousePosition; 
+		transform.position = Input.mousePosition;
+        if (startParent.name.Contains("Panel")) {//
+            transform.SetParent(startParent.parent);//
+            ArrowColorTrackScript.ColorTrack();//
+        }//
+        
     }
 
 	#endregion
