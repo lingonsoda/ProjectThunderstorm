@@ -61,13 +61,13 @@ public class ArrowColorTrack : MonoBehaviour {
         }
         if(refresh == 1) {
             refresh--;
-            StartCoroutine(repeatStartPositionColorTrack());
+            StartCoroutine(repeatColorTrack());
         }  
     }
 
-    IEnumerator repeatStartPositionColorTrack() {
+    IEnumerator repeatColorTrack() {
         yield return new WaitForSeconds(0.0001f);
-        StartPositionColorTrack();
+        ColorTrack();
     }
 
     public void ColorTrack() {
@@ -148,5 +148,10 @@ public class ArrowColorTrack : MonoBehaviour {
                 }
             }
         }
+        if (refresh == 1) {
+            refresh--;
+            StartCoroutine(repeatColorTrack());
+        }
     }
+
 }

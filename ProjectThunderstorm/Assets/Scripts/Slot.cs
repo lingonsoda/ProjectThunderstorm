@@ -24,14 +24,26 @@ public class Slot : MonoBehaviour, IDropHandler {
 
     public void OnDrop (PointerEventData eventData)
 	{
-        if (item && item.name.Contains("Arrow") && item.transform.parent.name.Contains("Panel")) {//
+        if (DragHandler.itemBeingDragged == null) {
+            Destroy(QuizDragHandler.itemBeingDragged.gameObject);
+            return;
+        }
+        if (item && item.name.Contains("Arrow")) {//
+            if (DragHandler.itemBeingDragged.transform.parent.name.Contains("Arrow")) {
+                Destroy(item);
+                DragHandler.itemBeingDragged.transform.SetParent(transform);
+                ArrowColorTrackScript.refresh = 1;
+                ArrowColorTrackScript.ColorTrack();
+                return;
+            }
             item.transform.SetParent(DragHandler.startParent);//
             DragHandler.itemBeingDragged.transform.SetParent(transform);//
         }//
         if (!item) {
-			DragHandler.itemBeingDragged.transform.SetParent (transform);
-		}
+            DragHandler.itemBeingDragged.transform.SetParent(transform);
+        }
         ArrowColorTrackScript.ColorTrack();
+
     }
 
 	#endregion
