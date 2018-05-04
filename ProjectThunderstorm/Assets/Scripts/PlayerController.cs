@@ -36,24 +36,9 @@ public class PlayerController : MonoBehaviour {
 		fadeAudio = AudioFade.FadeOut(audio, 0.2f);
 	}
 
-	public void setSpeed(int newSpeed)
-	{
-		speed = newSpeed;
-	}
-
-	public void playCarSound()
-	{
-		audio.Play ();
-	}
-
-	public void stopCarSound()
-	{
-		StartCoroutine (fadeAudio);
-	}
-
 	public void startPlay()
 	{
-		playCarSound ();
+		audio.Play ();
 		speed = playSpeed;
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
@@ -62,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void stopPlay()
 	{
-		stopCarSound ();
+		StartCoroutine (fadeAudio);
 		speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
