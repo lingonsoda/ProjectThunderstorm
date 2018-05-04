@@ -25,10 +25,15 @@ public class Slot : MonoBehaviour, IDropHandler {
     public void OnDrop (PointerEventData eventData)
 	{
         if (DragHandler.itemBeingDragged == null) {
-            Destroy(QuizDragHandler.itemBeingDragged.gameObject);
-            return;
+            try {
+                Destroy(QuizDragHandler.itemBeingDragged.gameObject);
+                return;
+            } catch (System.Exception) {
+                return;
+            }
+            
         }
-        if (item && item.name.Contains("Arrow")) {//
+        if (item && item.name.Contains("Arrow")) {
             if (DragHandler.itemBeingDragged.transform.parent.name.Contains("Arrow")) {
                 Destroy(item);
                 DragHandler.itemBeingDragged.transform.SetParent(transform);
@@ -40,9 +45,9 @@ public class Slot : MonoBehaviour, IDropHandler {
                 Destroy(DragHandler.itemBeingDragged.gameObject);
                 return;
             }
-            item.transform.SetParent(DragHandler.startParent);//
-            DragHandler.itemBeingDragged.transform.SetParent(transform);//
-        }//
+            item.transform.SetParent(DragHandler.startParent);
+            DragHandler.itemBeingDragged.transform.SetParent(transform);
+        }
         if (!item) {
             DragHandler.itemBeingDragged.transform.SetParent(transform);
         }

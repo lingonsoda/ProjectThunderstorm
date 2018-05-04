@@ -7,7 +7,7 @@ public class TrashCan : MonoBehaviour {
 
     void Update() {
         if(this.transform.childCount > 0) {
-            Destroy(this.transform.transform.GetChild(0).gameObject);
+            Destroy(this.transform.GetChild(0).gameObject);
             Debug.Log("Slängde en pil");
         }
     }
