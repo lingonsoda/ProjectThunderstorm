@@ -74,7 +74,7 @@ public class ArrowColorTrack : MonoBehaviour {
         string str = "Exception";
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
-            if (parent.transform.childCount == 0) {
+            if (parent.transform.childCount == 0 || parent.transform.childCount > 0 && parent.GetChild(0).gameObject.name == "ToggleBoxTrigger") {
                 if (parent.name.Contains("Panel")) {
                     parent.GetComponent<Image>().color = white;
                 }
@@ -90,7 +90,7 @@ public class ArrowColorTrack : MonoBehaviour {
                     for (int ar = 0; ar < 15; ar++) {
                         try {
                             gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
-                            if (gt.GetChild(temp + ar + 1).childCount > 0 || (temp + ar + 1) % 15 == 0) {
+                            if (gt.GetChild(temp + ar + 1).childCount > 0 && gt.GetChild(temp + ar + 1).GetChild(0).gameObject.name != "ToggleBoxTrigger" || (temp + ar + 1) % 15 == 0) {
                                 gt.GetChild(temp + ar).GetComponent<Image>().color = blue;
                                 break;
                             }
