@@ -36,6 +36,10 @@ public class Slot : MonoBehaviour, IDropHandler {
                 ArrowColorTrackScript.ColorTrack();
                 return;
             }
+            if (DragHandler.itemBeingDragged.transform.parent.name.Contains("Tile") && item.transform.parent.name.Contains("Arrow")) {
+                Destroy(DragHandler.itemBeingDragged.gameObject);
+                return;
+            }
             item.transform.SetParent(DragHandler.startParent);//
             DragHandler.itemBeingDragged.transform.SetParent(transform);//
         }//
