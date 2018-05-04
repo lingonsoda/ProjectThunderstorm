@@ -5683,11 +5683,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playSpeed: 250
   play: 0
+  playerCrashed: 0
   playButton: {fileID: 1550471538}
   stopButton: {fileID: 1006985907}
   startPosition: {fileID: 557033647}
   winPanel: {fileID: 914347718}
-  bear: {fileID: 634638062}
   gameController: {fileID: 663085383}
   quizPlayButton: {fileID: 2054018824}
 --- !u!224 &441702211
@@ -5978,6 +5978,7 @@ GameObject:
   - component: {fileID: 446849950}
   - component: {fileID: 446849949}
   - component: {fileID: 446849948}
+  - component: {fileID: 446849951}
   m_Layer: 5
   m_Name: ToggleBoxTrigger
   m_TagString: ToggleBox
@@ -6064,6 +6065,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 446849946}
+--- !u!114 &446849951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446849946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f663a8c2090c34eb62bf7f9ec91b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollision: 0
 --- !u!1 &458681055
 GameObject:
   m_ObjectHideFlags: 0
@@ -7964,6 +7977,7 @@ GameObject:
   - component: {fileID: 634638064}
   - component: {fileID: 634638067}
   - component: {fileID: 634638068}
+  - component: {fileID: 634638069}
   m_Layer: 5
   m_Name: BearObstacle
   m_TagString: Obstacle
@@ -8171,6 +8185,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &634638069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634638062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e52518413796db439e32b9eae46c1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 441702210}
+  toggleBoxCollider: {fileID: 446849951}
+  quizPlayButton: {fileID: 2054018824}
 --- !u!1 &637529980
 GameObject:
   m_ObjectHideFlags: 0
