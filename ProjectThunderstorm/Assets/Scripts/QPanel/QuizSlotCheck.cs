@@ -27,10 +27,16 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     #region IDropHandler implementation
 
     public void OnDrop(PointerEventData eventData) {
-        if(QuizDragHandler.itemBeingDragged == null) {
-            Destroy(DragHandler.itemBeingDragged.gameObject);
-            return;
+        if (QuizDragHandler.itemBeingDragged == null) {
+            try {
+                Destroy(DragHandler.itemBeingDragged.gameObject);
+                return;
+
+            } catch (System.Exception) {
+                return;
+            }
         }
+
         int number = QuizDragHandler.getNumber();
         audio = QuizDragHandler.itemBeingDragged.GetComponent<AudioSource>();
         if (!item) {
