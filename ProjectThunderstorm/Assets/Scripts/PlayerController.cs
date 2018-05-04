@@ -7,33 +7,26 @@ public class PlayerController : MonoBehaviour {
 
 	public int playSpeed;
 	public bool play;
+	public bool playerCrashed;
 
 	public Button playButton;
 	public Button stopButton;
 	public Transform startPosition;
 	public GameObject winPanel;
-	public GameObject bear;
 	public GameController gameController;
-	public QuizPlayButton quizPlayButton;
 
 	private IEnumerator fadeAudio;
 	private AudioSource audio;
-	private AudioSource bearAudio;
-	private Animator bearAnimation;
 	private BoxCollider2D bCollider;
 	private int speed;
-	private bool playerCrashed;
 
 	void Start () {
+
 		audio = GetComponent<AudioSource>();
 		bCollider = GetComponent<BoxCollider2D> ();
-		bearAudio = bear.GetComponent<AudioSource> ();
-		bearAnimation = bear.GetComponent<Animator> ();
 		bCollider.enabled = false;
-		bearAnimation.enabled = false;
 		speed = 0;
 		StartCoroutine (setStartPosition ());
-		transform.position = startPosition.position;
 		play = false;
 		playerCrashed = false;
 	}
@@ -45,17 +38,16 @@ public class PlayerController : MonoBehaviour {
 
 	public void startPlay()
 	{
-		audio.Play();
+		audio.Play ();
 		speed = playSpeed;
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
-		quizPlayButton.AnswerCheck ();
 		play = true;
 	}
 
 	public void stopPlay()
 	{
-		StartCoroutine(fadeAudio);
+		StartCoroutine (fadeAudio);
 		speed = 0;
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
@@ -95,20 +87,8 @@ public class PlayerController : MonoBehaviour {
 			speed = 0;
 			playerCrashed = true;
 		}
-		if (collision.gameObject.CompareTag ("ToggleBox")) {
-			StartCoroutine(fadeAudio);
-			speed = 0;
-			playerCrashed = true;
-			if (quizPlayButton.correctAnswer) 
-			{
-				bearAudio.Play ();
-				StartCoroutine(waitForBearToSleep());
-			}else{
-				//fail?
-			}
-		}
-
 	}
+
 	private void resetRotation()
 	{
 		Quaternion myRotation = transform.rotation;
@@ -119,19 +99,6 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator setStartPosition(){
 		yield return new WaitForEndOfFrame ();
 		transform.position = startPosition.position;
-	}
-
-	IEnumerator bearSleeping(){
-		yield return new WaitForSeconds (2);
-		speed = playSpeed;
-		audio.Play ();
-		playerCrashed = false;
-	}
-
-	IEnumerator waitForBearToSleep(){
-		yield return new WaitForSeconds (10);
-		bearAnimation.enabled = true;
-		StartCoroutine (bearSleeping ());
 	}
 
 	public void pausePlayer()
