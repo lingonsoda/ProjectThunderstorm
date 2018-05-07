@@ -8303,6 +8303,8 @@ MonoBehaviour:
   playerController: {fileID: 441702210}
   toggleBoxCollider: {fileID: 446849951}
   quizPlayButton: {fileID: 2054018824}
+  quizPanel: {fileID: 2054018819}
+  quizXButton: {fileID: 1482868147}
 --- !u!1 &637529980
 GameObject:
   m_ObjectHideFlags: 0
