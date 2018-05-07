@@ -17827,7 +17827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLeft: 0
-  startRight: 0
+  startRight: 1
   startDown: 0
   startUp: 0
   refresh: 0

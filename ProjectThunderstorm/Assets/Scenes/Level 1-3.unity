@@ -173,12 +173,12 @@ Prefab:
     - target: {fileID: 224461087510691108, guid: fe26719c827723a469b02a81984ae7bb,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 60.51
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 224461087510691108, guid: fe26719c827723a469b02a81984ae7bb,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 60.51
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 224461087510691108, guid: fe26719c827723a469b02a81984ae7bb,
         type: 2}
@@ -14089,7 +14089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLeft: 0
-  startRight: 0
+  startRight: 1
   startDown: 0
   startUp: 0
   refresh: 0
