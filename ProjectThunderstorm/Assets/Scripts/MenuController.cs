@@ -12,15 +12,37 @@ public class MenuController : MonoBehaviour {
     public void FromSelectionModeBack()
     {
         SceneManager.LoadScene("Menu");
+		MusicPlayer.PlayMenuMusic ();
+
     }
     public void StartStory()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene("Main");
         MusicPlayer.PlayGameMusic();
+=======
+		SceneManager.LoadScene("Level 1-1");
+		MusicPlayer.PlayGameMusic ();
+>>>>>>> master
     }
     public void ChooseChallengeLevel()
     {
         SceneManager.LoadScene("ChallengeModeMenu");
     }
+
+	public void Level1dash1()
+	{
+		SceneManager.LoadScene("Level 1-1");
+	}
+
+	public void RestartCurrentLevel()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex, LoadSceneMode.Single);
+	}
+
+	public void LoadNextScene()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1, LoadSceneMode.Single);
+	}
     
 }

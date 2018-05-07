@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler {
+    ArrowColorTrack ArrowColorTrackScript;
 
-	public GameObject item {
+    void Start() {
+        ArrowColorTrackScript = GameObject.Find("TilePanel").GetComponent<ArrowColorTrack>();
+    }
+
+    public GameObject item {
 		get {
 		if (transform.childCount>0){
 				return transform.GetChild (0).gameObject;
@@ -19,11 +24,15 @@ public class Slot : MonoBehaviour, IDropHandler {
 
     public void OnDrop (PointerEventData eventData)
 	{
-		if (!item) {
+        if (item && item.name.Contains("Arrow") && item.transform.parent.name.Contains("Panel")) {//
+            item.transform.SetParent(DragHandler.startParent);//
+            DragHandler.itemBeingDragged.transform.SetParent(transform);//
+        }//
+        if (!item) {
 			DragHandler.itemBeingDragged.transform.SetParent (transform);
 		}
-
-	}
+        ArrowColorTrackScript.ColorTrack();
+    }
 
 	#endregion
 }

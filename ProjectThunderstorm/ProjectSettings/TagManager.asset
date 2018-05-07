@@ -8,9 +8,15 @@ TagManager:
   - ArrowDown
   - ArrowRight
   - ArrowLeft
+<<<<<<< HEAD
   - Hinder
   - music
   - music2
+=======
+  - Goal
+  - Obstacle
+  - ToggleBox
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
