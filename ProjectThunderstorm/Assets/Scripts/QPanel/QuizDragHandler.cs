@@ -7,8 +7,9 @@ public class QuizDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public static GameObject itemBeingDragged;
     Vector3 startPosition;
-    Transform startParent;//Transform startParent
+    Transform startParent;
     public static int number;
+    public static int loopTimes;
 
     void Start() {
 
@@ -32,6 +33,15 @@ public class QuizDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             return number;
         }
         return number;
+    }
+
+    public static int getLoopTimes() {
+        //Här hämtas ett nummer från ett annat loopscript som jag skriver senare
+
+        if (loopTimes == 0) { //Detta ska vara sist
+            return loopTimes;
+        }
+        return loopTimes;
     }
 
     #region IBeginDragHandler implementation
@@ -58,10 +68,10 @@ public class QuizDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData) {
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent == startParent.parent) {//
-            transform.position = startPosition;//
-            transform.SetParent(startParent);//
-        }//
+        if (transform.parent == startParent.parent) {
+            transform.position = startPosition;
+            transform.SetParent(startParent);
+        }
         if (transform.parent == startParent) {
             transform.position = startPosition;
         }

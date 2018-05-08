@@ -24,9 +24,6 @@ public class ArrowColorTrack : MonoBehaviour {
         StartPositionColorTrack();
     }
 
-    void Update() {
-    }
-
     public void RemoveAllColor() {
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
@@ -112,7 +109,7 @@ public class ArrowColorTrack : MonoBehaviour {
                 if (parent.transform.childCount > 0) {
                     if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
                         int temp = i;
-                        Debug.Log("UppPil hittad! Färgar upp");
+                        Debug.Log("Start Hittad! Färgar upp");
                         for (int us = 105; us > 0; us -= 15) {
                             try {
                                 gt.GetChild(temp + (us - 105)).GetComponent<Image>().color = blue;

@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour {
 	private int speed;
 
 	void Start () {
-
 		audio = GetComponent<AudioSource>();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;

@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     public int correctAnswer;
+    public int correctLoop;
     public bool isCorrectAnswer;
+    public bool isCorrectLoop;
     AudioSource audio;
 
     void Update() {
@@ -21,7 +23,6 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
             }
             return null;
         }
-
     }
 
     #region IDropHandler implementation
@@ -38,6 +39,7 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
         }
 
         int number = QuizDragHandler.getNumber();
+        int loopTimes = QuizDragHandler.getLoopTimes();
         audio = QuizDragHandler.itemBeingDragged.GetComponent<AudioSource>();
         if (!item) {
             QuizDragHandler.itemBeingDragged.transform.SetParent(transform);
@@ -45,10 +47,20 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
             if (SlotIsCorrect(number)) {
                 isCorrectAnswer = true;
             } else { isCorrectAnswer = false; }
+            if (LoopIsCorrect(loopTimes)) {
+                isCorrectLoop = true;
+            } else { isCorrectLoop = false; }
         }
     }
     public bool SlotIsCorrect(int i) {
         if (i == correctAnswer) {
+            return true;
+        }
+        return false;
+    }
+
+    public bool LoopIsCorrect(int i) {
+        if (i == correctLoop) {
             return true;
         }
         return false;
