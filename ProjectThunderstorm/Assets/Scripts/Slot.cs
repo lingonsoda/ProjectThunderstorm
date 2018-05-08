@@ -33,13 +33,12 @@ public class Slot : MonoBehaviour, IDropHandler {
                 return;
             } 
         }
-        audio = DragHandler.itemBeingDragged.GetComponent<AudioSource>();
+        
         if (item && item.name.Contains("Arrow")) {
             if (DragHandler.itemBeingDragged.transform.parent.name.Contains("Arrow")) {
                 Destroy(item);
                 DragHandler.itemBeingDragged.transform.SetParent(transform);
-                audio.pitch = Random.Range(0.95f, 1.05f);
-                audio.Play();
+                PlayAudio();
                 ArrowColorTrackScript.refresh = 1;
                 ArrowColorTrackScript.ColorTrack();
                 return;
@@ -50,14 +49,21 @@ public class Slot : MonoBehaviour, IDropHandler {
             }
             item.transform.SetParent(DragHandler.startParent);
             DragHandler.itemBeingDragged.transform.SetParent(transform);
+            PlayAudio();
+            ArrowColorTrackScript.ColorTrack();
         }
         if (!item) {
             DragHandler.itemBeingDragged.transform.SetParent(transform);
+            PlayAudio();
+            ArrowColorTrackScript.ColorTrack();
         }
+
+    }
+
+    public void PlayAudio() {
+        audio = DragHandler.itemBeingDragged.GetComponent<AudioSource>();
         audio.pitch = Random.Range(0.95f, 1.05f);
         audio.Play();
-        ArrowColorTrackScript.ColorTrack();
-
     }
 
 	#endregion
