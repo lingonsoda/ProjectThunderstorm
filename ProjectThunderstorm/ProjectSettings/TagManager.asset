@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ArrowUp
-  - ArrowDown
-  - ArrowRight
-  - ArrowLeft
-<<<<<<< HEAD
-  - Hinder
-  - music
-  - music2
-=======
-  - Goal
-  - Obstacle
-  - ToggleBox
->>>>>>> master
+  tags: []
   layers:
   - Default
   - TransparentFX

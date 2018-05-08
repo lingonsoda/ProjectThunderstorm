@@ -17,13 +17,13 @@ public class MenuController : MonoBehaviour {
     }
     public void StartStory()
     {
-<<<<<<< HEAD
+
         SceneManager.LoadScene("Main");
         MusicPlayer.PlayGameMusic();
-=======
+
 		SceneManager.LoadScene("Level 1-1");
 		MusicPlayer.PlayGameMusic ();
->>>>>>> master
+
     }
     public void ChooseChallengeLevel()
     {
