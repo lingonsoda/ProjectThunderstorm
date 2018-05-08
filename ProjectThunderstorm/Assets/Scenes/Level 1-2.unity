@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1109672786}
   winPanel: {fileID: 1751200592}
-  playButton: {fileID: 0}
-  stopButton: {fileID: 0}
+  playButton: {fileID: 854865182}
+  stopButton: {fileID: 543675993}
   resetButton: {fileID: 408423216}
   menuButton: {fileID: 17445360}
   playerController: {fileID: 95459435}
@@ -4152,6 +4152,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224793517069276284, guid: efd407964ea055740abda1c8b5421ce4,
     type: 2}
   m_PrefabInternal: {fileID: 543675991}
+--- !u!114 &543675993 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114363129610850860, guid: efd407964ea055740abda1c8b5421ce4,
+    type: 2}
+  m_PrefabInternal: {fileID: 543675991}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &546805610
 GameObject:
   m_ObjectHideFlags: 0
@@ -7765,6 +7771,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224205736980238558, guid: 3862224e20441f94aa9ae6a8a137c67f,
     type: 2}
   m_PrefabInternal: {fileID: 854865180}
+--- !u!114 &854865182 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114661565150046720, guid: 3862224e20441f94aa9ae6a8a137c67f,
+    type: 2}
+  m_PrefabInternal: {fileID: 854865180}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &870914407
 Prefab:
   m_ObjectHideFlags: 0
