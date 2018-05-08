@@ -9,7 +9,6 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     public bool isCorrectAnswer;
 
     private int itemNumber;
-    private int slotRefreshCheck;
     AudioSource audio;
     QuizLoop quizLoop;
 
@@ -49,7 +48,6 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
         if (!item) {
             QuizDragHandler.itemBeingDragged.transform.SetParent(transform);
             audio.Play();
-            slotRefreshCheck++;
             itemNumber = QuizDragHandler.getNumber();
             SlotCheck();
         }
@@ -58,17 +56,8 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     public void SlotCheck() {
             if (SlotIsCorrect(itemNumber) && LoopIsCorrect()) {
                 isCorrectAnswer = true;
-            if(slotRefreshCheck == 1) {
-                slotRefreshCheck--;
-            }
         } else {
                 isCorrectAnswer = false;
-            if (slotRefreshCheck == 1) {
-                slotRefreshCheck--;
-            }
-        }
-        if (slotRefreshCheck == 1) {
-            slotRefreshCheck--;
         }
     }
 
