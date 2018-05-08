@@ -68,9 +68,14 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
         return false;
     }
     public bool LoopIsCorrect() {
-        if (quizLoop.getLoopTimes() == correctLoop) {
-            return true;
+        try {
+            if (quizLoop.getLoopTimes() == correctLoop) {
+                return true;
+            }
+        } catch (System.Exception) {
+            return false;
         }
+
         return false;
     }
 
