@@ -60,25 +60,16 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
                 isCorrectAnswer = true;
             if(slotRefreshCheck == 1) {
                 slotRefreshCheck--;
-                StartCoroutine(repeatSlotCheck());
             }
         } else {
                 isCorrectAnswer = false;
             if (slotRefreshCheck == 1) {
                 slotRefreshCheck--;
-                StartCoroutine(repeatSlotCheck());
             }
         }
         if (slotRefreshCheck == 1) {
             slotRefreshCheck--;
-            StartCoroutine(repeatSlotCheck());
         }
-    }
-
-    IEnumerator repeatSlotCheck() {
-        yield return new WaitForSeconds(0.0001f);
-        Debug.Log("Kollar igen!");
-        SlotCheck();
     }
 
     public bool SlotIsCorrect(int i) {
