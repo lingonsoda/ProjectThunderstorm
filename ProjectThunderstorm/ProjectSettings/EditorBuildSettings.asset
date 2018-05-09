@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ChallengeModeMenu.unity
     guid: aa24a6b9eb4a63d4ab93befc9c912f53
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 8fd6ac8ced5a6f64a9141ae2d4d90568
-  - enabled: 1
     path: Assets/Scenes/Level 1-1.unity
     guid: 68c53cb944c8802439d8d3832c68c21b
   - enabled: 1
     path: Assets/Scenes/Level 1-2.unity
     guid: 868d690f50664874a88d8123a7b45af1
+  - enabled: 1
+    path: Assets/Scenes/Level 1-3.unity
+    guid: 789a2f3c0c6c85d4aa35a7d862f45320

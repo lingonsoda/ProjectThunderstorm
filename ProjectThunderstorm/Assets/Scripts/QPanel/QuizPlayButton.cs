@@ -4,26 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class QuizPlayButton : MonoBehaviour {
-    public Button quizPlayBtn;
     public GameObject slot1, slot2, slot3, slot4;
+	public bool correctAnswer;
 
     bool slotOne, slotTwo, slotThree, slotFour;
+    bool slotOneLoop, slotTwoLoop, slotThreeLoop, slotFourLoop;
 
 
     void Start() {
-        Button qPBtn = quizPlayBtn.GetComponent<Button>();
-        qPBtn.onClick.AddListener(OnClick);
 
+		correctAnswer = false;
     }
 
-    void OnClick() {
+    public void AnswerCheck() {
         slotOne = slot1.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotTwo = slot2.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotThree = slot3.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotFour = slot4.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
-        if (slotOne && slotTwo && slotThree && slotFour) {
+        slotOneLoop = slot1.GetComponent<QuizSlotCheck>().LoopIsCorrect();
+        slotTwoLoop = slot2.GetComponent<QuizSlotCheck>().LoopIsCorrect();
+        slotThreeLoop = slot3.GetComponent<QuizSlotCheck>().LoopIsCorrect();
+        slotFourLoop = slot4.GetComponent<QuizSlotCheck>().LoopIsCorrect();
+        if (slotOne && slotTwo && slotThree && slotFour &&
+            slotOneLoop && slotTwoLoop && slotThreeLoop && slotFourLoop) {
             Debug.Log("Rätt");
-        } else { Debug.Log("Fel"); }
+			correctAnswer = true;
+        } else {
+			Debug.Log("Fel");
+			correctAnswer = false;
+		}
     }
 
 }

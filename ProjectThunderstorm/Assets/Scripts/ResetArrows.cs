@@ -26,7 +26,8 @@ public class ResetArrows : MonoBehaviour
 			}
 		}
 		ArrowColorTrackScript.RemoveAllColor();
-		ArrowColorTrackScript.StartPositionColorTrack();
-		playerController.stopPlay ();
+        ArrowColorTrackScript.refresh = 1;
+        ArrowColorTrackScript.StartPositionColorTrack();
+        playerController.stopPlay ();
 	}
 }

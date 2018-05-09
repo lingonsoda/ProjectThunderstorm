@@ -7,7 +7,7 @@ public class QuizDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public static GameObject itemBeingDragged;
     Vector3 startPosition;
-    Transform startParent;//Transform startParent
+    Transform startParent;
     public static int number;
 
     void Start() {
@@ -58,10 +58,6 @@ public class QuizDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData) {
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent == startParent.parent) {//
-            transform.position = startPosition;//
-            transform.SetParent(startParent);//
-        }//
         if (transform.parent == startParent) {
             transform.position = startPosition;
         }
