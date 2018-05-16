@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ArrowUp
-  - ArrowDown
-  - ArrowRight
-  - ArrowLeft
-  - Goal
-  - Obstacle
-  - ToggleBox
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -47,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: TEST
-    uniqueID: 2398034935
     locked: 0
