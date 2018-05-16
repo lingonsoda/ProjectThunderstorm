@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ArrowUp
+  - ArrowDown
+  - ArrowRight
+  - ArrowLeft
+  - Goal
+  - Obstacle
+  - ToggleBox
   layers:
   - Default
   - TransparentFX
