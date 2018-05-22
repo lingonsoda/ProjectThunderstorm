@@ -5,8 +5,16 @@ using UnityEngine.EventSystems;
 
 public class QuizSlotCheck : MonoBehaviour, IDropHandler {
     public int correctAnswer;
+    public int correctLoop;
     public bool isCorrectAnswer;
+
+    private int itemNumber;
     AudioSource audio;
+    QuizLoop quizLoop;
+
+    void Start() {
+        quizLoop = this.GetComponent<QuizLoop>();
+    }
 
     void Update() {
         if (this.transform.childCount == 0) {
@@ -21,7 +29,6 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
             }
             return null;
         }
-
     }
 
     #region IDropHandler implementation
@@ -31,20 +38,43 @@ public class QuizSlotCheck : MonoBehaviour, IDropHandler {
             Destroy(DragHandler.itemBeingDragged.gameObject);
             return;
         }
+<<<<<<< HEAD
         int number = QuizDragHandler.getNumber();
+=======
+
+>>>>>>> master
         audio = QuizDragHandler.itemBeingDragged.GetComponent<AudioSource>();
         if (!item) {
             QuizDragHandler.itemBeingDragged.transform.SetParent(transform);
             audio.Play();
-            if (SlotIsCorrect(number)) {
-                isCorrectAnswer = true;
-            } else { isCorrectAnswer = false; }
+            itemNumber = QuizDragHandler.getNumber();
+            SlotCheck();
         }
     }
+
+    public void SlotCheck() {
+            if (SlotIsCorrect(itemNumber) && LoopIsCorrect()) {
+                isCorrectAnswer = true;
+        } else {
+                isCorrectAnswer = false;
+        }
+    }
+
     public bool SlotIsCorrect(int i) {
         if (i == correctAnswer) {
             return true;
         }
+        return false;
+    }
+    public bool LoopIsCorrect() {
+        try {
+            if (quizLoop.getLoopTimes() == correctLoop) {
+                return true;
+            }
+        } catch (System.Exception) {
+            return false;
+        }
+
         return false;
     }
 
