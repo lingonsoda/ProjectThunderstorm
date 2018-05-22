@@ -8,7 +8,6 @@ public class QuizPlayButton : MonoBehaviour {
 	public bool correctAnswer;
 
     bool slotOne, slotTwo, slotThree, slotFour;
-    bool slotOneLoop, slotTwoLoop, slotThreeLoop, slotFourLoop;
 
 
     void Start() {
@@ -21,12 +20,7 @@ public class QuizPlayButton : MonoBehaviour {
         slotTwo = slot2.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotThree = slot3.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
         slotFour = slot4.GetComponent<QuizSlotCheck>().getIsCorrectAnswer();
-        slotOneLoop = slot1.GetComponent<QuizSlotCheck>().LoopIsCorrect();
-        slotTwoLoop = slot2.GetComponent<QuizSlotCheck>().LoopIsCorrect();
-        slotThreeLoop = slot3.GetComponent<QuizSlotCheck>().LoopIsCorrect();
-        slotFourLoop = slot4.GetComponent<QuizSlotCheck>().LoopIsCorrect();
-        if (slotOne && slotTwo && slotThree && slotFour &&
-            slotOneLoop && slotTwoLoop && slotThreeLoop && slotFourLoop) {
+        if (slotOne && slotTwo && slotThree && slotFour) {
             Debug.Log("Rätt");
 			correctAnswer = true;
         } else {

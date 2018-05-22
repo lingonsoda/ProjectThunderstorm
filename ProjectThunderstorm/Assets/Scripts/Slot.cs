@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler {
     ArrowColorTrack ArrowColorTrackScript;
-    AudioSource audio;
 
     void Start() {
         ArrowColorTrackScript = GameObject.Find("TilePanel").GetComponent<ArrowColorTrack>();
@@ -31,14 +30,13 @@ public class Slot : MonoBehaviour, IDropHandler {
                 return;
             } catch (System.Exception) {
                 return;
-            } 
+            }
+            
         }
-        
         if (item && item.name.Contains("Arrow")) {
             if (DragHandler.itemBeingDragged.transform.parent.name.Contains("Arrow")) {
                 Destroy(item);
                 DragHandler.itemBeingDragged.transform.SetParent(transform);
-                PlayAudio();
                 ArrowColorTrackScript.refresh = 1;
                 ArrowColorTrackScript.ColorTrack();
                 return;
@@ -49,21 +47,12 @@ public class Slot : MonoBehaviour, IDropHandler {
             }
             item.transform.SetParent(DragHandler.startParent);
             DragHandler.itemBeingDragged.transform.SetParent(transform);
-            PlayAudio();
-            ArrowColorTrackScript.ColorTrack();
         }
         if (!item) {
             DragHandler.itemBeingDragged.transform.SetParent(transform);
-            PlayAudio();
-            ArrowColorTrackScript.ColorTrack();
         }
+        ArrowColorTrackScript.ColorTrack();
 
-    }
-
-    public void PlayAudio() {
-        audio = DragHandler.itemBeingDragged.GetComponent<AudioSource>();
-        audio.pitch = Random.Range(0.95f, 1.05f);
-        audio.Play();
     }
 
 	#endregion

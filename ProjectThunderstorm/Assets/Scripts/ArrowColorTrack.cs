@@ -24,6 +24,9 @@ public class ArrowColorTrack : MonoBehaviour {
         StartPositionColorTrack();
     }
 
+    void Update() {
+    }
+
     public void RemoveAllColor() {
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
@@ -35,91 +38,22 @@ public class ArrowColorTrack : MonoBehaviour {
 
     public void StartPositionColorTrack() {
         string str = "Exception";
-        if (startLeft) {
-            for (int i = 0; i < grandParent.childCount; i++) {
-                Transform parent = gt.GetChild(i);
-                if (parent.transform.childCount > 0) {
-                    if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
-                        int temp = i;
-                        Debug.Log("Start Hittad! Färgar till vänster");
-                        for (int ls = 15; ls > 0; ls--) {
-                            try {
-                                gt.GetChild(temp + (ls - 15)).GetComponent<Image>().color = blue;
-                                if (gt.GetChild(temp + (ls - 15) - 1).childCount > 0 && gt.GetChild(temp + (ls - 15) - 1).GetChild(0).gameObject.name != "ToggleBoxTrigger" || (temp + (ls - 15)) % 15 == 0) {
-                                    gt.GetChild(temp + (ls - 15)).GetComponent<Image>().color = blue;
-                                    break;
-                                }
-                            } catch (System.Exception) {
-                                Debug.Log(str);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (startRight) {
-            for (int i = 0; i < grandParent.childCount; i++) {
-                Transform parent = gt.GetChild(i);
-                if (parent.transform.childCount > 0) {
-                    if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
-                        int temp = i;
-                        Debug.Log("Start Hittad! Färgar till höger");
-                        for (int rs = 0; rs < 15; rs++) {
-                            try {
+        for (int i = 0; i < grandParent.childCount; i++) {
+            Transform parent = gt.GetChild(i);
+            if (parent.transform.childCount > 0) {
+                if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
+                    int temp = i;
+                    Debug.Log("Start Hittad! Färgar till höger");
+                    for (int rs = 0; rs < 15; rs++) {
+                        try {
+                            gt.GetChild(temp + rs).GetComponent<Image>().color = blue;
+                            if (gt.GetChild(temp + rs + 1).childCount > 0 || (temp + rs + 1) % 15 == 0) {
                                 gt.GetChild(temp + rs).GetComponent<Image>().color = blue;
-                                if (gt.GetChild(temp + rs + 1).childCount > 0 && gt.GetChild(temp + rs + 1).GetChild(0).gameObject.name != "ToggleBoxTrigger" || (temp + rs + 1) % 15 == 0) {
-                                    gt.GetChild(temp + rs).GetComponent<Image>().color = blue;
-                                    break;
-                                }
-                            } catch (System.Exception) {
-                                Debug.Log(str);
                                 break;
                             }
-                        }
-                    }
-                }
-            }
-        }
-        if (startDown) {
-            for (int i = 0; i < grandParent.childCount; i++) {
-                Transform parent = gt.GetChild(i);
-                if (parent.transform.childCount > 0) {
-                    if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
-                        int temp = i;
-                        Debug.Log("Start hittad! Färgar neråt");
-                        for (int ds = 0; ds < 105; ds += 15) {
-                            try {
-                                gt.GetChild(temp + ds).GetComponent<Image>().color = blue;
-                                if (gt.GetChild(temp + ds + 15).childCount > 0 && gt.GetChild(temp + ds + 15).GetChild(0).gameObject.name != "ToggleBoxTrigger") {
-                                    break;
-                                }
-                            } catch (System.Exception) {
-                                Debug.Log(str);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (startUp) {
-            for (int i = 0; i < grandParent.childCount; i++) {
-                Transform parent = gt.GetChild(i);
-                if (parent.transform.childCount > 0) {
-                    if (parent.transform.GetChild(0).gameObject.name.Contains("StartPosition")) {
-                        int temp = i;
-                        Debug.Log("Start Hittad! Färgar upp");
-                        for (int us = 105; us > 0; us -= 15) {
-                            try {
-                                gt.GetChild(temp + (us - 105)).GetComponent<Image>().color = blue;
-                                if (gt.GetChild(temp + (us - 105) - 15).childCount > 0 && gt.GetChild(temp + (us - 105) - 15).GetChild(0).gameObject.name != "ToggleBoxTrigger") {
-                                    break;
-                                }
-                            } catch (System.Exception) {
-                                Debug.Log(str);
-                                break;
-                            }
+                        } catch (System.Exception) {
+                            Debug.Log(str);
+                            break;
                         }
                     }
                 }
@@ -172,7 +106,7 @@ public class ArrowColorTrack : MonoBehaviour {
                     for (int ad = 0; ad < 105; ad += 15) {
                         try {
                             gt.GetChild(temp + ad).GetComponent<Image>().color = blue;
-                            if (gt.GetChild(temp + ad + 15).childCount > 0 && gt.GetChild(temp + ad + 15).GetChild(0).gameObject.name != "ToggleBoxTrigger") {
+                            if (gt.GetChild(temp + ad + 15).childCount > 0) {
                                 break;
                             }
                         } catch (System.Exception) {
@@ -187,7 +121,7 @@ public class ArrowColorTrack : MonoBehaviour {
                     for (int al = 15; al > 0; al--) {
                         try {
                             gt.GetChild(temp + (al - 15)).GetComponent<Image>().color = blue;
-                            if (gt.GetChild(temp + (al - 15) - 1).childCount > 0 && gt.GetChild(temp + (al-15) -1).GetChild(0).gameObject.name != "ToggleBoxTrigger" || (temp + (al - 15)) % 15 == 0) {
+                            if (gt.GetChild(temp + (al - 15) - 1).childCount > 0 || (temp + (al - 15)) % 15 == 0) {
                                 gt.GetChild(temp + (al - 15)).GetComponent<Image>().color = blue;
                                 break;
                             }
@@ -203,7 +137,7 @@ public class ArrowColorTrack : MonoBehaviour {
                     for (int au = 105; au > 0; au -= 15) {
                         try {
                             gt.GetChild(temp + (au - 105)).GetComponent<Image>().color = blue;
-                            if (gt.GetChild(temp + (au - 105) - 15).childCount > 0 && gt.GetChild(temp + (au - 105) - 15).GetChild(0).gameObject.name != "ToggleBoxTrigger") {
+                            if (gt.GetChild(temp + (au - 105) - 15).childCount > 0) {
                                 break;
                             }
                         } catch (System.Exception) {
