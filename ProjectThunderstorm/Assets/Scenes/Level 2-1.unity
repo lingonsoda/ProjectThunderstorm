@@ -5042,8 +5042,8 @@ MonoBehaviour:
   playSpeed: 150
   play: 0
   playerCrashed: 0
-  playButton: {fileID: 0}
-  stopButton: {fileID: 0}
+  playButton: {fileID: 1632137976}
+  stopButton: {fileID: 1792765620}
   startPosition: {fileID: 613167154}
   winPanel: {fileID: 1214402547}
   gameController: {fileID: 1188283061}
@@ -6458,7 +6458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5fc5098f94bbc48ba59921b4fcab5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetButton: {fileID: 0}
+  resetButton: {fileID: 1391416946}
   playerController: {fileID: 455150047}
 --- !u!114 &582270379
 MonoBehaviour:
