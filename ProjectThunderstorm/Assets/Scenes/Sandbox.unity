@@ -834,7 +834,7 @@ MonoBehaviour:
   playerCrashed: 0
   playButton: {fileID: 90194787}
   stopButton: {fileID: 1604573518}
-  startPosition: {fileID: 0}
+  startPosition: {fileID: 1905923244}
   winPanel: {fileID: 1090954076}
   gameController: {fileID: 817143307}
 --- !u!82 &89761886
@@ -12520,7 +12520,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1251248027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7814944017efd8142b15cc8b17f76130, type: 3}
   m_Name: 
@@ -17594,7 +17594,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924647124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7814944017efd8142b15cc8b17f76130, type: 3}
   m_Name: 
