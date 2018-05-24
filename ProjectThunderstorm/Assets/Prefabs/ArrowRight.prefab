@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 225985051834667876}
   - component: {fileID: 114671090221662636}
   - component: {fileID: 61867418041841750}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ArrowRight
   m_TagString: ArrowRight
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250800512181346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -350.66772}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
