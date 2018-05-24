@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 	public GameController gameController;
+	public ParticleSystem carSmoke;
 
 	private IEnumerator fadeAudio;
 	private AudioSource audio;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
+		carSmoke.Stop ();
 	}
 
 	void Update () {
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 		speed = playSpeed;
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
+		carSmoke.Play ();
 		play = true;
 	}
 
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour {
 		bCollider.enabled = false;
 		transform.position = startPosition.position;
 		resetRotation ();
+		carSmoke.Stop ();
+		carSmoke.Clear ();
 		if (play) {
 			gameController.swapPlayAndStop ();
 		}
@@ -79,11 +84,14 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(fadeAudio);
 			gameController.activateWinPanel ();
 			speed = 0;
+			carSmoke.Stop ();
+			carSmoke.Clear ();
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
 			StartCoroutine(fadeAudio);
 			speed = 0;
+			carSmoke.Stop ();
 			playerCrashed = true;
 		}
 	}
@@ -103,6 +111,8 @@ public class PlayerController : MonoBehaviour {
 	public void pausePlayer()
 	{
 		speed = 0;
+		carSmoke.Stop ();
+		carSmoke.Clear ();
 		StartCoroutine(fadeAudio);
 	}
 
