@@ -11,6 +11,8 @@ public class BearController : MonoBehaviour
 	public QuizPlayButton quizPlayButton;
 	public GameObject quizPanel;
 	public Button quizXButton;
+	public Button stopButton;
+	public Button resetButton;
 
 	private AudioSource bearAudio;
 	private Animator bearAnimation;
@@ -22,6 +24,8 @@ public class BearController : MonoBehaviour
 		quizXButton.onClick.AddListener (bearAnswerCheck);
 		bearAudio = GetComponent<AudioSource> ();
 		bearAnimation = GetComponent<Animator> ();
+		stopButton.onClick.AddListener (resetQuizPanel);
+		resetButton.onClick.AddListener (resetQuizPanel);
 		bearAnimation.enabled = false;
 		bearCompleted = false;
 		playerAtBear = false;
@@ -81,5 +85,11 @@ public class BearController : MonoBehaviour
 	{
 		yield return new WaitForSeconds (2);
 		quizPanel.SetActive (true);
+	}
+
+	public void resetQuizPanel()
+	{
+		quizPanel.SetActive (false);
+		playerAtBear = false;
 	}
 }

@@ -8508,6 +8508,8 @@ MonoBehaviour:
   quizPlayButton: {fileID: 2054018824}
   quizPanel: {fileID: 2054018819}
   quizXButton: {fileID: 1482868147}
+  stopButton: {fileID: 1633335030}
+  resetButton: {fileID: 782089851}
 --- !u!1001 &638377029
 Prefab:
   m_ObjectHideFlags: 0
@@ -9375,7 +9377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &701941834
 RectTransform:
   m_ObjectHideFlags: 0
