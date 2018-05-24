@@ -14,10 +14,16 @@ public class QuizLoop : MonoBehaviour {
     }
 
     void Start() {
-        quizSlotCheck = this.GetComponent<QuizSlotCheck>();
-        plusBtn.onClick.AddListener(plusClick);
-        minusBtn.onClick.AddListener(minusClick);
-        loopTimesText.text = "|";
+
+            quizSlotCheck = this.GetComponent<QuizSlotCheck>();
+        try {
+            plusBtn.onClick.AddListener(plusClick);
+            minusBtn.onClick.AddListener(minusClick);
+            loopTimesText.text = "|";
+        } catch (System.NullReferenceException) {
+
+        }
+
     }
 
     public int getLoopTimes() {
