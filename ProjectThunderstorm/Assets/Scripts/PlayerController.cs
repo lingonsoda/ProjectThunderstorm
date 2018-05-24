@@ -19,9 +19,13 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
+	private Animator crashAnim;
+
+
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
+		crashAnim = GetComponent<Animator>();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
 			StartCoroutine(fadeAudio);
+			crashAnim.Play ("Player_crash");
 			speed = 0;
 			playerCrashed = true;
 		}
