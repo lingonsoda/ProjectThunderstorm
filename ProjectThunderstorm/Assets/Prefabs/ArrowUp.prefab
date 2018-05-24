@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 225681559261303006}
   - component: {fileID: 114103650046204152}
   - component: {fileID: 61420742913520918}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: ArrowUp
   m_TagString: ArrowUp
   m_Icon: {fileID: 0}
