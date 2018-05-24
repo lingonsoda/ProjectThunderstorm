@@ -14,14 +14,19 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 	public GameController gameController;
+	public AudioClip crash;
+//	public Sprite crashSprite;
+//	public SpriteRenderer spriteRenderer;
 
 	private IEnumerator fadeAudio;
 	private AudioSource audio;
+	private AudioSource crashAudio;
 	private BoxCollider2D bCollider;
 	private int speed;
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
+		crashAudio = GetComponent<AudioSource> ();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 		transform.Translate (new Vector3 (1 ,0 ,0) * speed * Time.deltaTime);
 		fadeAudio = AudioFade.FadeOut(audio, 0.2f);
 	}
+
 
 	public void startPlay()
 	{
@@ -82,7 +88,10 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
-			StartCoroutine(fadeAudio);
+//			StartCoroutine(fadeAudio);
+//			spriteRenderer.sprite = crashSprite;
+			audio.Stop();
+			crashAudio.PlayOneShot (crash);
 			speed = 0;
 			playerCrashed = true;
 		}
