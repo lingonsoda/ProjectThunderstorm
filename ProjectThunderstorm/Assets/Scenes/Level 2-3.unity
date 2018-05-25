@@ -20833,7 +20833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186, y: -255.10002}
+  m_AnchoredPosition: {x: -186, y: -255.1}
   m_SizeDelta: {x: 51.932, y: 51.9}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1700976665
@@ -25142,7 +25142,7 @@ Prefab:
     - target: {fileID: 114237841257014786, guid: a4f02d6facfcc964380dfcc8cb975425,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartCurrentLevel
+      value: FromSelectionModeBack
       objectReference: {fileID: 0}
     - target: {fileID: 114256495017391780, guid: a4f02d6facfcc964380dfcc8cb975425,
         type: 2}
