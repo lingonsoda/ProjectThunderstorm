@@ -2576,6 +2576,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1913657046791574, guid: a4f02d6facfcc964380dfcc8cb975425,
     type: 2}
   m_PrefabInternal: {fileID: 212636565}
+--- !u!198 &212636568 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198667436344510306, guid: a4f02d6facfcc964380dfcc8cb975425,
+    type: 2}
+  m_PrefabInternal: {fileID: 212636565}
+--- !u!198 &212636569 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198495818667143940, guid: a4f02d6facfcc964380dfcc8cb975425,
+    type: 2}
+  m_PrefabInternal: {fileID: 212636565}
+--- !u!198 &212636570 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198349284930711786, guid: a4f02d6facfcc964380dfcc8cb975425,
+    type: 2}
+  m_PrefabInternal: {fileID: 212636565}
 --- !u!1 &216584373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +4992,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   gameController: {fileID: 1188283061}
   carSmoke: {fileID: 1024728634}
+  crash: {fileID: 0}
 --- !u!224 &455150048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14662,6 +14678,9 @@ MonoBehaviour:
   resetButton: {fileID: 1391416946}
   menuButton: {fileID: 1706831139}
   playerController: {fileID: 455150047}
+  fireworkLeft: {fileID: 212636570}
+  fireworkRight: {fileID: 212636569}
+  fireworkMiddle: {fileID: 212636568}
 --- !u!4 &1188283062
 Transform:
   m_ObjectHideFlags: 0

@@ -12,11 +12,17 @@ public class GameController : MonoBehaviour {
 	public Button resetButton;
 	public Button menuButton;
 	public PlayerController playerController;
+	public ParticleSystem fireworkLeft;
+	public ParticleSystem fireworkRight;
+	public ParticleSystem fireworkMiddle;
+
+	private bool win;
 
 	void Start () {
 		menuPanel.SetActive (false);
 		winPanel.SetActive (false);
 		stopButton.gameObject.SetActive (false);
+		win = false;
 	}
 
 	void Update () {
@@ -42,6 +48,9 @@ public class GameController : MonoBehaviour {
 		winPanel.SetActive (true);
 		deactivateGameButtons ();
 		playerController.pausePlayer ();
+		fireworkLeft.Play ();
+		StartCoroutine (fireWorkLeftDelay ());
+		StartCoroutine (fireWorkMiddleDelay ());
 	}
 
 	public void swapPlayAndStop()
@@ -74,5 +83,16 @@ public class GameController : MonoBehaviour {
 		stopButton.gameObject.SetActive (false);
 		resetButton.gameObject.SetActive (false);
 		menuButton.gameObject.SetActive (false);
+	}
+	IEnumerator fireWorkLeftDelay()
+	{
+		yield return new WaitForSeconds (0.5F);
+		fireworkRight.Play ();
+	}
+
+	IEnumerator fireWorkMiddleDelay()
+	{
+		yield return new WaitForSeconds (1);
+		fireworkMiddle.Play ();
 	}
 }
