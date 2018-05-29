@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour {
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", false);
+		anim.SetBool ("Player_Idle", true);
 	}
 
 	void Update () {
@@ -46,6 +49,9 @@ public class PlayerController : MonoBehaviour {
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
 		play = true;
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", true);
+		anim.SetBool ("Player_Idle", false);
 	}
 
 	public void stopPlay()
@@ -60,6 +66,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		play = false;
 		playerCrashed = false;
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", false);
+		anim.SetBool ("Player_Idle", true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -87,7 +96,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
 			StartCoroutine(fadeAudio);
-			anim.Play ("Player_crash");
+			anim.SetBool ("Player_crash", true);
+			anim.SetBool ("Player_driving", false);
+			anim.SetBool ("Player_Idle", false);
+//			anim.Play ("Player_crash");
 			speed = 0;
 			playerCrashed = true;
 		}
