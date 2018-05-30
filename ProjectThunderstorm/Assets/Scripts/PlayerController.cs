@@ -110,12 +110,9 @@ public class PlayerController : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Obstacle")) {
 			audio.Stop ();
 			crashAudio.PlayOneShot (crash);
-
-			StartCoroutine(fadeAudio);
 			anim.SetBool ("Player_crash", true);
 			anim.SetBool ("Player_driving", false);
 			anim.SetBool ("Player_Idle", false);
-
 			speed = 0;
 			carSmoke.Stop ();
 			playerCrashed = true;

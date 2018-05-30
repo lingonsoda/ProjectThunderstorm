@@ -883,6 +883,7 @@ GameObject:
   - component: {fileID: 133269186}
   - component: {fileID: 133269185}
   - component: {fileID: 133269184}
+  - component: {fileID: 133269190}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -1054,7 +1055,7 @@ MonoBehaviour:
   winPanel: {fileID: 1029284249}
   gameController: {fileID: 119682082}
   carSmoke: {fileID: 375301786}
-  crash: {fileID: 0}
+  crash: {fileID: 8300000, guid: dd5ee41b7ca0969448ae556b1bd83642, type: 3}
 --- !u!114 &133269188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1089,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 133269182}
+--- !u!95 &133269190
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 133269182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de056634416306c458421219f9e6ed58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &139062467
 GameObject:
   m_ObjectHideFlags: 0
