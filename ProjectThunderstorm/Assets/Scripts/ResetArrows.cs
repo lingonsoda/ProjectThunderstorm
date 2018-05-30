@@ -30,4 +30,8 @@ public class ResetArrows : MonoBehaviour
         ArrowColorTrackScript.StartPositionColorTrack();
         playerController.stopPlay ();
 	}
+
+	public void SandBoxReset(){
+		OnClick ();
+	}
 }

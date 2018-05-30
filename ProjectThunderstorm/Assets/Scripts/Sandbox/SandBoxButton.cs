@@ -12,6 +12,7 @@ public class SandBoxButton : MonoBehaviour {
 	public GameObject startPlace;
 	public Button sandboxButton;
     public Button startButton;
+	public Button stopButton;
 	public Text sandboxText;
     public GameController gameController;
 
@@ -22,6 +23,8 @@ public class SandBoxButton : MonoBehaviour {
 	void Start () {
 		arrowPanel.SetActive (false);
 		player.SetActive (false);
+		startButton.gameObject.SetActive (false);
+		stopButton.gameObject.SetActive (false);
 		startgoalPanel.SetActive (true);
 		obstaclePanel.SetActive (true);
 	}
@@ -38,6 +41,8 @@ public class SandBoxButton : MonoBehaviour {
 			player.SetActive (true);
 			startgoalPanel.SetActive (false);
 			obstaclePanel.SetActive (false);
+			startButton.gameObject.SetActive (true);
+			stopButton.gameObject.SetActive (true);
             gameController.activateGameButtons();
             sandboxActive = false;
 		}
@@ -48,6 +53,8 @@ public class SandBoxButton : MonoBehaviour {
 			player.SetActive (false);
 			startgoalPanel.SetActive (true);
 			obstaclePanel.SetActive (true);
+			startButton.gameObject.SetActive (false);
+			stopButton.gameObject.SetActive (false);
             gameController.deactivatePlayStopButtons();
             sandboxActive = true;
 		}
