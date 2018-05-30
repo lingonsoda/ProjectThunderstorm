@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ModeSelection.unity
     guid: d2c7ad1a361ac5f4e8c20bba1a095ef9
   - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: f639f2451394e764c94b2171288d119f
+  - enabled: 1
     path: Assets/Scenes/ChallengeModeMenu.unity
     guid: aa24a6b9eb4a63d4ab93befc9c912f53
   - enabled: 1

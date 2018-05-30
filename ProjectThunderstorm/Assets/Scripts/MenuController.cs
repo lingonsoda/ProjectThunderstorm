@@ -43,5 +43,9 @@ public class MenuController : MonoBehaviour {
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1, LoadSceneMode.Single);
 	}
+
+	public void LoadSandbox(){
+		SceneManager.LoadScene ("Sandbox");
+	}
     
 }
