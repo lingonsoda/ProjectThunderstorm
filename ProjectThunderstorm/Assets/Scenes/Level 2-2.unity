@@ -173,7 +173,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 9040720}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &9040723
 Behaviour:
   m_ObjectHideFlags: 0
@@ -12134,7 +12134,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1185395830}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1185395833
 Behaviour:
   m_ObjectHideFlags: 0
@@ -22703,8 +22703,8 @@ RectTransform:
   - {fileID: 324405429}
   - {fileID: 1211793564}
   - {fileID: 670620327}
-  - {fileID: 2047246395}
   - {fileID: 1548606609}
+  - {fileID: 2047246395}
   - {fileID: 1505624701}
   - {fileID: 113944832}
   - {fileID: 1344386693}
