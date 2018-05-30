@@ -22,17 +22,30 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
+	private Animator anim;
+
+
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
+<<<<<<< HEAD
 		crashAudio = GetComponent<AudioSource> ();
+=======
+		anim = GetComponent<Animator>();
+>>>>>>> William
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
+<<<<<<< HEAD
 		carSmoke.Stop ();
+=======
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", false);
+		anim.SetBool ("Player_Idle", true);
+>>>>>>> William
 	}
 
 	void Update () {
@@ -48,6 +61,9 @@ public class PlayerController : MonoBehaviour {
 		gameController.swapPlayAndStop ();
 		carSmoke.Play ();
 		play = true;
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", true);
+		anim.SetBool ("Player_Idle", false);
 	}
 
 	public void stopPlay()
@@ -64,6 +80,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		play = false;
 		playerCrashed = false;
+		anim.SetBool ("Player_crash", false);
+		anim.SetBool ("Player_driving", false);
+		anim.SetBool ("Player_Idle", true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -92,8 +111,16 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
+<<<<<<< HEAD
 			audio.Stop ();
 			crashAudio.PlayOneShot (crash);
+=======
+			StartCoroutine(fadeAudio);
+			anim.SetBool ("Player_crash", true);
+			anim.SetBool ("Player_driving", false);
+			anim.SetBool ("Player_Idle", false);
+//			anim.Play ("Player_crash");
+>>>>>>> William
 			speed = 0;
 			carSmoke.Stop ();
 			playerCrashed = true;
