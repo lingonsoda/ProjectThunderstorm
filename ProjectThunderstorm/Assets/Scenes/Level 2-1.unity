@@ -2563,6 +2563,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FromSelectionModeBack
       objectReference: {fileID: 0}
+    - target: {fileID: 1913657046791574, guid: a4f02d6facfcc964380dfcc8cb975425, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4f02d6facfcc964380dfcc8cb975425, type: 2}
   m_IsPrefabParent: 0
