@@ -11734,7 +11734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186, y: -255.10002}
+  m_AnchoredPosition: {x: -186, y: -255.1}
   m_SizeDelta: {x: 51.932, y: 51.9}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &631924091
@@ -23537,6 +23537,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: deactivateMenuPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569426933321044, guid: 96c38e31018982640820628d0d2d2078, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96c38e31018982640820628d0d2d2078, type: 2}
