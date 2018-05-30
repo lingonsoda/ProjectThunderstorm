@@ -6393,7 +6393,7 @@ MonoBehaviour:
   startLeft: 0
   startRight: 0
   startDown: 0
-  startUp: 0
+  startUp: 1
   refresh: 0
 --- !u!114 &582270378
 MonoBehaviour:
@@ -6764,7 +6764,7 @@ Prefab:
     - target: {fileID: 224706498232410138, guid: 0811fb248d96a594b878a4900ac1b608,
         type: 2}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224706498232410138, guid: 0811fb248d96a594b878a4900ac1b608,
         type: 2}
