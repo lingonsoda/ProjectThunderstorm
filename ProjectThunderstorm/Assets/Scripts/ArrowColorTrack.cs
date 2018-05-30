@@ -257,4 +257,23 @@ public class ArrowColorTrack : MonoBehaviour {
         }
     }
 
+	public void StartPositionButton(){
+		if (startLeft) {
+			startLeft = false;
+			startUp = true;
+		} else if (startUp) {
+			startUp = false;
+			startRight = true;
+		} else if (startRight) {
+			startRight = false;
+			startDown = true;
+		} else if (startDown) {
+			startDown = false;
+			startLeft = true;
+		}
+
+		RemoveAllColor ();
+		StartPositionColorTrack ();
+	}
+
 }
