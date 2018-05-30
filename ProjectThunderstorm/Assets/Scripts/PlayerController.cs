@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 	public GameController gameController;
+	public ArrowColorTrack arrowColorTrack;
 	public ParticleSystem carSmoke;
 	public AudioClip crash;
 
@@ -22,24 +23,18 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
-	private Animator anim;
-
-
 
 	void Start () {
 		audio = GetComponent<AudioSource>();
 		crashAudio = GetComponent<AudioSource> ();
-		anim = GetComponent<Animator>();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
+		resetStartRotation ();
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
 		carSmoke.Stop ();
-		anim.SetBool ("Player_crash", false);
-		anim.SetBool ("Player_driving", false);
-		anim.SetBool ("Player_Idle", true);
 	}
 
 	void Update () {
@@ -55,9 +50,6 @@ public class PlayerController : MonoBehaviour {
 		gameController.swapPlayAndStop ();
 		carSmoke.Play ();
 		play = true;
-		anim.SetBool ("Player_crash", false);
-		anim.SetBool ("Player_driving", true);
-		anim.SetBool ("Player_Idle", false);
 	}
 
 	public void stopPlay()
@@ -65,8 +57,8 @@ public class PlayerController : MonoBehaviour {
 		StartCoroutine (fadeAudio);
 		speed = 0;
 		bCollider.enabled = false;
+		resetStartRotation ();
 		transform.position = startPosition.position;
-		resetRotation ();
 		carSmoke.Stop ();
 		carSmoke.Clear ();
 		if (play) {
@@ -74,14 +66,11 @@ public class PlayerController : MonoBehaviour {
 		}
 		play = false;
 		playerCrashed = false;
-		anim.SetBool ("Player_crash", false);
-		anim.SetBool ("Player_driving", false);
-		anim.SetBool ("Player_Idle", true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		Vector3 myScale = transform.localScale;
+		//Vector3 myScale = transform.localScale;
 		if(collision.gameObject.CompareTag("ArrowRight"))
 		{
 			resetRotation ();
@@ -107,11 +96,6 @@ public class PlayerController : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Obstacle")) {
 			audio.Stop ();
 			crashAudio.PlayOneShot (crash);
-			StartCoroutine(fadeAudio);
-			anim.SetBool ("Player_crash", true);
-			anim.SetBool ("Player_driving", false);
-			anim.SetBool ("Player_Idle", false);
-//			anim.Play ("Player_crash");
 			speed = 0;
 			carSmoke.Stop ();
 			playerCrashed = true;
@@ -123,6 +107,26 @@ public class PlayerController : MonoBehaviour {
 		Quaternion myRotation = transform.rotation;
 		myRotation.z = 0;
 		transform.rotation = myRotation;
+	}
+
+	private void resetStartRotation()
+	{
+		if (arrowColorTrack.startRight) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		} else if (arrowColorTrack.startUp) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 90);
+		} else if (arrowColorTrack.startLeft) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 180);
+		} else if (arrowColorTrack.startDown) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * -90);
+		} else {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		}
 	}
 
 	IEnumerator setStartPosition(){

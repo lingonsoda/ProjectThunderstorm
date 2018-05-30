@@ -3997,8 +3997,9 @@ MonoBehaviour:
   startPosition: {fileID: 613167154}
   winPanel: {fileID: 1344386694}
   gameController: {fileID: 1188283061}
+  arrowColorTrack: {fileID: 582270377}
   carSmoke: {fileID: 1337145112}
-  crash: {fileID: 0}
+  crash: {fileID: 8300000, guid: dd5ee41b7ca0969448ae556b1bd83642, type: 3}
 --- !u!224 &324405429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22703,8 +22704,8 @@ RectTransform:
   - {fileID: 324405429}
   - {fileID: 1211793564}
   - {fileID: 670620327}
-  - {fileID: 2047246395}
   - {fileID: 1548606609}
+  - {fileID: 2047246395}
   - {fileID: 1505624701}
   - {fileID: 113944832}
   - {fileID: 1344386693}
