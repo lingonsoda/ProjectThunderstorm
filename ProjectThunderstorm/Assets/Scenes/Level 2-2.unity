@@ -3971,6 +3971,7 @@ GameObject:
   - component: {fileID: 324405432}
   - component: {fileID: 324405431}
   - component: {fileID: 324405430}
+  - component: {fileID: 324405435}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -3998,7 +3999,7 @@ MonoBehaviour:
   winPanel: {fileID: 1344386694}
   gameController: {fileID: 1188283061}
   carSmoke: {fileID: 1337145112}
-  crash: {fileID: 0}
+  crash: {fileID: 8300000, guid: dd5ee41b7ca0969448ae556b1bd83642, type: 3}
 --- !u!224 &324405429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4007,7 +4008,7 @@ RectTransform:
   m_GameObject: {fileID: 324405427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1.000143, y: 1.000143, z: 1.000143}
+  m_LocalScale: {x: 1, y: 1.000143, z: 1.000143}
   m_Children:
   - {fileID: 1337145114}
   m_Father: {fileID: 2002377773}
@@ -4176,6 +4177,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 324405427}
+--- !u!95 &324405435
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324405427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de056634416306c458421219f9e6ed58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &332853427
 GameObject:
   m_ObjectHideFlags: 0
