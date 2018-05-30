@@ -14,21 +14,27 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 	public GameController gameController;
+	public ArrowColorTrack arrowColorTrack;
+	//public ParticleSystem carSmoke;
+	//public AudioClip crash;
 
 	private IEnumerator fadeAudio;
+	private AudioSource crashAudio;
 	private AudioSource audio;
 	private BoxCollider2D bCollider;
 	private int speed;
 
 	void Start () {
-		
 		audio = GetComponent<AudioSource>();
+		crashAudio = GetComponent<AudioSource> ();
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
+		resetStartRotation ();
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
+		//carSmoke.Stop ();
 	}
 
 	void Update () {
@@ -42,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		speed = playSpeed;
 		bCollider.enabled = true;
 		gameController.swapPlayAndStop ();
+		//carSmoke.Play ();
 		play = true;
 	}
 
@@ -50,8 +57,10 @@ public class PlayerController : MonoBehaviour {
 		StartCoroutine (fadeAudio);
 		speed = 0;
 		bCollider.enabled = false;
+		resetStartRotation ();
 		transform.position = startPosition.position;
-		resetRotation ();
+		//carSmoke.Stop ();
+		//carSmoke.Clear ();
 		if (play) {
 			gameController.swapPlayAndStop ();
 		}
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		Vector3 myScale = transform.localScale;
+		//Vector3 myScale = transform.localScale;
 		if(collision.gameObject.CompareTag("ArrowRight"))
 		{
 			resetRotation ();
@@ -80,11 +89,15 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(fadeAudio);
 			gameController.activateWinPanel ();
 			speed = 0;
+			//carSmoke.Stop ();
+			//carSmoke.Clear ();
 			Debug.Log ("Goal");
 		}
 		if (collision.gameObject.CompareTag ("Obstacle")) {
-			StartCoroutine(fadeAudio);
+			audio.Stop ();
+			//crashAudio.PlayOneShot (crash);
 			speed = 0;
+			//carSmoke.Stop ();
 			playerCrashed = true;
 		}
 	}
@@ -96,6 +109,26 @@ public class PlayerController : MonoBehaviour {
 		transform.rotation = myRotation;
 	}
 
+	private void resetStartRotation()
+	{
+		if (arrowColorTrack.startRight) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		} else if (arrowColorTrack.startUp) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 90);
+		} else if (arrowColorTrack.startLeft) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 180);
+		} else if (arrowColorTrack.startDown) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * -90);
+		} else {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		}
+	}
+
 	IEnumerator setStartPosition(){
 		yield return new WaitForEndOfFrame ();
 		transform.position = startPosition.position;
@@ -104,6 +137,8 @@ public class PlayerController : MonoBehaviour {
 	public void pausePlayer()
 	{
 		speed = 0;
+		//carSmoke.Stop ();
+		//carSmoke.Clear ();
 		StartCoroutine(fadeAudio);
 	}
 
