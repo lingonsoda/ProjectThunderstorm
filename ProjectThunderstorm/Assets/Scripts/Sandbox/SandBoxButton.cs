@@ -11,9 +11,11 @@ public class SandBoxButton : MonoBehaviour {
 	public GameObject player;
 	public GameObject startPlace;
 	public Button sandboxButton;
+    public Button startButton;
 	public Text sandboxText;
+    public GameController gameController;
 
-	private bool sandboxActive = true;
+    private bool sandboxActive = true;
 
 
 	// Use this for initialization
@@ -36,7 +38,8 @@ public class SandBoxButton : MonoBehaviour {
 			player.SetActive (true);
 			startgoalPanel.SetActive (false);
 			obstaclePanel.SetActive (false);
-			sandboxActive = false;
+            gameController.activateGameButtons();
+            sandboxActive = false;
 		}
 		else if (!sandboxActive) {
 			sandboxButton.GetComponentInChildren<Text> ().text = "Play Mode";
@@ -45,7 +48,8 @@ public class SandBoxButton : MonoBehaviour {
 			player.SetActive (false);
 			startgoalPanel.SetActive (true);
 			obstaclePanel.SetActive (true);
-			sandboxActive = true;
+            gameController.deactivatePlayStopButtons();
+            sandboxActive = true;
 		}
 	}
 

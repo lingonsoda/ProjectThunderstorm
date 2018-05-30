@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	private void activateGameButtons()
+	public void activateGameButtons()
 	{
 		resetButton.gameObject.SetActive (true);
 		menuButton.gameObject.SetActive (true);
@@ -76,6 +76,11 @@ public class GameController : MonoBehaviour {
 			playButton.gameObject.SetActive (true);
 		}
 	}
+
+    public void deactivatePlayStopButtons() {
+        playButton.gameObject.SetActive(false);
+        stopButton.gameObject.SetActive(false);
+    }
 
 	private void deactivateGameButtons()
 	{

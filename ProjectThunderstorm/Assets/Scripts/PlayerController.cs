@@ -136,7 +136,11 @@ public class PlayerController : MonoBehaviour {
 		speed = 0;
 		carSmoke.Stop ();
 		carSmoke.Clear ();
-		StartCoroutine(fadeAudio);
+        try {
+            StartCoroutine(fadeAudio);
+        } catch (System.Exception) {
+
+        }
 	}
 
 	public void startPlayer()

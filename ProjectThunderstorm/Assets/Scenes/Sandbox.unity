@@ -7447,6 +7447,8 @@ MonoBehaviour:
   startDown: 0
   startUp: 0
   refresh: 0
+  sandboxMode: 1
+  sandboxBtn: {fileID: 776780837}
 --- !u!114 &881050026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11368,7 +11370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 224.36, y: 0}
+  m_AnchoredPosition: {x: 224.35999, y: 0}
   m_SizeDelta: {x: 100.58, y: 47.1}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1207325758
@@ -19558,7 +19560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 273.26, y: -23.550016}
+  m_AnchoredPosition: {x: 273.26, y: -23.549994}
   m_SizeDelta: {x: 546.52, y: 46.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739904037
