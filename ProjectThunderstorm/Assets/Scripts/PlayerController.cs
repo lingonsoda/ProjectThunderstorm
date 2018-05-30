@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public Transform startPosition;
 	public GameObject winPanel;
 	public GameController gameController;
+	public ArrowColorTrack arrowColorTrack;
 	public ParticleSystem carSmoke;
 	public AudioClip crash;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 		bCollider = GetComponent<BoxCollider2D> ();
 		bCollider.enabled = false;
 		speed = 0;
+		resetStartRotation ();
 		StartCoroutine (setStartPosition ());
 		play = false;
 		playerCrashed = false;
@@ -68,8 +70,8 @@ public class PlayerController : MonoBehaviour {
 		StartCoroutine (fadeAudio);
 		speed = 0;
 		bCollider.enabled = false;
+		resetStartRotation ();
 		transform.position = startPosition.position;
-		resetRotation ();
 		carSmoke.Stop ();
 		carSmoke.Clear ();
 		if (play) {
@@ -124,6 +126,26 @@ public class PlayerController : MonoBehaviour {
 		Quaternion myRotation = transform.rotation;
 		myRotation.z = 0;
 		transform.rotation = myRotation;
+	}
+
+	private void resetStartRotation()
+	{
+		if (arrowColorTrack.startRight) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		} else if (arrowColorTrack.startUp) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 90);
+		} else if (arrowColorTrack.startLeft) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 180);
+		} else if (arrowColorTrack.startDown) {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * -90);
+		} else {
+			resetRotation ();
+			transform.Rotate (Vector3.forward * 0);
+		}
 	}
 
 	IEnumerator setStartPosition(){
