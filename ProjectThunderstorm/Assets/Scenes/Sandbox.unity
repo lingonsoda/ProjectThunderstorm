@@ -1939,7 +1939,9 @@ MonoBehaviour:
   player: {fileID: 1233587580}
   startPlace: {fileID: 0}
   sandboxButton: {fileID: 776780837}
+  startButton: {fileID: 1520935138}
   sandboxText: {fileID: 450468373}
+  gameController: {fileID: 156942387}
 --- !u!1 &178215089
 GameObject:
   m_ObjectHideFlags: 0
@@ -11665,6 +11667,7 @@ GameObject:
   - component: {fileID: 1233587584}
   - component: {fileID: 1233587583}
   - component: {fileID: 1233587582}
+  - component: {fileID: 1233587588}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -11870,6 +11873,23 @@ RectTransform:
   m_AnchoredPosition: {x: -467, y: -201.54}
   m_SizeDelta: {x: 75.29, y: 75.29}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1233587588
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233587580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1238710104
 GameObject:
   m_ObjectHideFlags: 0
