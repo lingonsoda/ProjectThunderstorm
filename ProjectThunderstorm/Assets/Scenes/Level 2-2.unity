@@ -3998,6 +3998,7 @@ MonoBehaviour:
   startPosition: {fileID: 613167154}
   winPanel: {fileID: 1344386694}
   gameController: {fileID: 1188283061}
+  arrowColorTrack: {fileID: 582270377}
   carSmoke: {fileID: 1337145112}
   crash: {fileID: 8300000, guid: dd5ee41b7ca0969448ae556b1bd83642, type: 3}
 --- !u!224 &324405429
@@ -4131,7 +4132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8, y: 0}
+  m_Offset: {x: -8, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6898,8 +6899,10 @@ MonoBehaviour:
   startLeft: 0
   startRight: 0
   startDown: 0
-  startUp: 0
+  startUp: 1
   refresh: 0
+  sandboxMode: 0
+  sandboxBtn: {fileID: 0}
 --- !u!114 &582270378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7164,7 +7167,7 @@ Prefab:
     - target: {fileID: 224706498232410138, guid: 0811fb248d96a594b878a4900ac1b608,
         type: 2}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224706498232410138, guid: 0811fb248d96a594b878a4900ac1b608,
         type: 2}
@@ -13591,7 +13594,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 952267040
+  randomSeed: 349454209
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16965,7 +16968,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1337145111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 324405429}

@@ -1022,7 +1022,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8, y: 0}
+  m_Offset: {x: -8, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   startPosition: {fileID: 269167503}
   winPanel: {fileID: 1029284249}
   gameController: {fileID: 119682082}
+  arrowColorTrack: {fileID: 1903915678}
   carSmoke: {fileID: 375301786}
   crash: {fileID: 8300000, guid: dd5ee41b7ca0969448ae556b1bd83642, type: 3}
 --- !u!114 &133269188
@@ -2782,7 +2783,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 375301783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 133269183}
@@ -2902,7 +2903,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 218020067
+  randomSeed: 1226690248
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20621,6 +20622,8 @@ MonoBehaviour:
   startDown: 0
   startUp: 0
   refresh: 0
+  sandboxMode: 0
+  sandboxBtn: {fileID: 0}
 --- !u!114 &1903915679
 MonoBehaviour:
   m_ObjectHideFlags: 0
