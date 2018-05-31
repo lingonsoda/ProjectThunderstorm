@@ -16,12 +16,20 @@ public class ArrowColorTrack : MonoBehaviour {
 
     public int refresh = 0;
 
+    public bool sandboxMode;
+    bool sandboxStartLocated;
+    bool sandboxGoalLocated;
+    public Button sandboxBtn;
+
 	void Start() {
         grandParent = this.transform;
         gt = grandParent.transform;
         blue = new Color32(0, 50, 240, 100);
         white = new Color32(255, 255, 255, 45);
         StartPositionColorTrack();
+        if (sandboxMode) {
+            SandBox();
+        }
     }
 
     public void RemoveAllColor() {
@@ -136,8 +144,37 @@ public class ArrowColorTrack : MonoBehaviour {
         ColorTrack();
     }
 
+    public void SandBox() {
+        sandboxStartLocated = false;
+        sandboxGoalLocated = false;
+        sandboxBtn.interactable = false;
+        for (int i = 0; i < grandParent.childCount; i++) {
+            Transform parent = gt.GetChild(i);
+            if (parent.transform.childCount > 0) {
+                try {
+                    if (parent.transform.GetChild(0).gameObject.name.Contains("Start")) {
+                        sandboxStartLocated = true;
+                    }
+                    if (parent.transform.GetChild(0).gameObject.name.Contains("Goal")) {
+                        sandboxGoalLocated = true;
+                    }
+                } catch (System.Exception) {
+
+                }
+
+            }
+        }
+        if(sandboxStartLocated && sandboxGoalLocated) {
+            sandboxBtn.interactable = true;
+        }
+        RemoveAllColor();
+    }
+
     public void ColorTrack() {
         string str = "Exception";
+        if (sandboxMode) {
+            SandBox();
+        }
         for (int i = 0; i < grandParent.childCount; i++) {
             Transform parent = gt.GetChild(i);
             if (parent.transform.childCount == 0 || parent.transform.childCount > 0 && parent.GetChild(0).gameObject.name == "ToggleBoxTrigger") {
@@ -219,5 +256,24 @@ public class ArrowColorTrack : MonoBehaviour {
             StartCoroutine(repeatColorTrack());
         }
     }
+
+	public void StartPositionButton(){
+		if (startLeft) {
+			startLeft = false;
+			startUp = true;
+		} else if (startUp) {
+			startUp = false;
+			startRight = true;
+		} else if (startRight) {
+			startRight = false;
+			startDown = true;
+		} else if (startDown) {
+			startDown = false;
+			startLeft = true;
+		}
+
+		RemoveAllColor ();
+		StartPositionColorTrack ();
+	}
 
 }

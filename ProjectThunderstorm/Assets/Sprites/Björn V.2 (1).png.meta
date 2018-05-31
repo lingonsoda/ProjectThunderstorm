@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ef22a642fa760a845830760f4a39b36d
 timeCreated: 1527154361
+=======
+guid: 72b293f08f392374da48b5c8fd17bbf1
+timeCreated: 1527192936
+>>>>>>> master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -46,7 +51,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
+<<<<<<< HEAD
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+=======
+  spriteBorder: {x: 482, y: 0, z: 452, w: 0}
+>>>>>>> master
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1

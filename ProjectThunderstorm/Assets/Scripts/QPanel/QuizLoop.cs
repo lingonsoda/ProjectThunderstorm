@@ -7,36 +7,52 @@ public class QuizLoop : MonoBehaviour {
 
     public int loopTimes;
     public Button plusBtn, minusBtn;
-    public Text plusText, minusText;
+    public Text loopTimesText;
     QuizSlotCheck quizSlotCheck;
 
     void Update() {
     }
 
     void Start() {
-        quizSlotCheck = this.GetComponent<QuizSlotCheck>();
-        plusBtn.onClick.AddListener(plusClick);
-        minusBtn.onClick.AddListener(minusClick);
-        plusText.text = (loopTimes+1) + ">";
-        minusText.text = "<" + (loopTimes + 1);
+
+            quizSlotCheck = this.GetComponent<QuizSlotCheck>();
+        try {
+            plusBtn.onClick.AddListener(plusClick);
+            minusBtn.onClick.AddListener(minusClick);
+            loopTimesText.text = "|";
+        } catch (System.NullReferenceException) {
+
+        }
+
     }
 
     public int getLoopTimes() {
         return loopTimes;
     }
+    public void loopDash(int i) {
+        loopTimesText.text = "|";
+        for (int i2 = i; i2 > 0; i2--) {
+            loopTimesText.text += "|";
+        }
+    }
     public void plusClick() {
-        ++loopTimes;
-        plusText.text = (loopTimes + 1) + ">";
-        minusText.text = "<" + (loopTimes + 1);
-        quizSlotCheck.SlotCheck();
+        if(loopTimes < 4) {
+            ++loopTimes;
+            loopDash(loopTimes);
+            quizSlotCheck.SlotCheck();
+        } else {
+
+        }
+
     }
     public void minusClick() {
-        --loopTimes;
-        if (loopTimes < 0) {
-            loopTimes = 0;
+        if (loopTimes == 0) {
+
+        } else {
+            --loopTimes;
+            loopDash(loopTimes);
+            quizSlotCheck.SlotCheck();
         }
-        plusText.text = (loopTimes + 1) + ">";
-        minusText.text = "<" + (loopTimes + 1);
-        quizSlotCheck.SlotCheck();
+
     }
 }
